@@ -1,5 +1,11 @@
 # Administrador
-Short description and motivation.
+
+Yet another rails admin UI.
+
+Why do we need another one?
+
+Must admin UIs need to be hacked or bent to support engines. This admin UI thinks
+engines first, main-app second. ;)
 
 ## Usage
 How to use my plugin.
@@ -19,6 +25,11 @@ $ bundle
 Or install it yourself as:
 ```bash
 $ gem install administrador
+```
+
+Run the rails generator:
+```bash
+$ rails g administrador:install
 ```
 
 ## Contributing
