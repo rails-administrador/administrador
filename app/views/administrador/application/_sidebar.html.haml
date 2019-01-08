@@ -1,0 +1,23 @@
+.container-fluid
+  .row
+    .col-12
+      #main-sidebar-content
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{:href => "#"} Active
+          %li.nav-item
+            %a.nav-link{:href => "#"} Link
+          %li.nav-item
+            %a.nav-link{:href => "#"} Link
+          %li.nav-item
+            %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+    .col-12.d-flex.align-items-end
+      #main-sidebar-bottom-content
+        %button.btn.btn-lg.btn-circle.btn-primary
+          %i.fas.fa-comments
+        %button.btn.btn-lg.btn-circle.btn-primary
+          %i.fas.fa-comments
+        %button.btn.btn-lg.btn-circle.btn-primary
+          %i.fas.fa-comments
+        %button.btn.btn-lg.btn-circle.btn-primary
+          %i.fas.fa-comments

@@ -1,2 +1,2 @@
 
-  mount Administador::Engine, at: '/'
+  mount Administrador::Engine, at: '/'

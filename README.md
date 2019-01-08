@@ -4,11 +4,8 @@ Yet another rails admin UI.
 
 Why do we need another one?
 
-Must admin UIs need to be hacked or bent to support engines. This admin UI thinks
+Most admin UIs need to be hacked or bent to support engines. This admin UI thinks
 engines first, main-app second. ;)
-
-## Usage
-How to use my plugin.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -31,6 +28,15 @@ Run the rails generator:
 ```bash
 $ rails g administrador:install
 ```
+
+## Configuration
+
+Look at the initializer at config/initializers/administrador.rb for configuration
+options.
+
+## Usage
+
+Go to /en/backend and enjoy your admin UI.
 
 ## Contributing
 Contribution directions go here.
