@@ -1,5 +1,5 @@
 module Administrador
   class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+    view_helper Administrador::ApplicationViewHelper, as: :administrador
   end
 end

@@ -2,9 +2,11 @@
   .row
     .col-12
       #main-sidebar-content
-        %ul.nav.flex-column
-          %li.nav-item
-            %a.nav-link.active{:href => "#"} Active
+        - administrador(self).engines.each do |name, engine|
+          %div{ id: "#{engine.to_key}-menu", class: "engine-menu" }
+            %ul.nav.flex-column
+              %li.nav-item
+                %a.nav-link.active{:href => "#"}= engine.name
           %li.nav-item
             %a.nav-link{:href => "#"} Link
           %li.nav-item
