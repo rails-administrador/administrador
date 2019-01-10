@@ -1,3 +1,13 @@
 de:
+  administrador:
+    resources_controller:
+      base:
+        index:
+          title: "%{collection_name}"
+        new:
+          title: "%{resource_name} erstellen"
+  administrador/breadcrumbs_view_helper:
+    generate_breadcrumbs!:
+      home: 'Home'
   routes:
     administrador: admin

@@ -1,15 +1,16 @@
 %nav.navbar.navbar-light
-  %ul.navbar-nav
-    %li.nav-item.active
-      %a.nav-link{ href: root_path }
-        = t('.home')
+  #main-navbar-content
+    %ul.navbar-nav
+      %li.nav-item
+        %button.btn.btn-circle.btn-lg.btn-light#offcanvas-left-trigger
+          %i.fas.fa-bars
   #main-navbar-tools
     %ul.navbar-nav
       %li.nav-item
         %button.btn.btn-circle.btn-lg.btn-light
           %i.fas.fa-search
       %li.nav-item
-        %button.btn.btn-circle.btn-lg.btn-light
+        %button.btn.btn-circle.btn-lg.btn-lights
           %i.fas.fa-comments
       %li.nav-item
         %button.btn.btn-circle.btn-lg.btn-light
@@ -24,5 +25,5 @@
         %button.btn.btn-circle.btn-lg.btn-light
           %i.fas.fa-cog
       %li.nav-item
-        %button.btn.btn-circle.btn-lg.btn-light
+        %button.btn.btn-circle.btn-lg.btn-light#offcanvas-right-trigger
           %i.fas.fa-ellipsis-v

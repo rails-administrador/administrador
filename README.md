@@ -7,6 +7,15 @@ Why do we need another one?
 Most admin UIs need to be hacked or bent to support engines. This admin UI thinks
 engines first, main-app second. ;)
 
+## Prerequisites
+
+If you are using rails <= 4.0 you have to add the responders gem to you Gemfile:
+
+```ruby
+gem 'responders'
+```
+
+
 ## Installation
 Add this line to your application's Gemfile:
 

@@ -1,0 +1,11 @@
+.row
+  .col-12
+    %h1= t('.title', inflections)
+
+  .col-12
+    = collection_table(collection: @collection, resource_class: resource_class) do |table|
+      = render partial: 'index_table', locals: { table: table }
+      = render partial: 'index_table_actions', locals: { table: table }
+  
+  .col-12.d-flex
+    = render partial: 'index_actions'

@@ -1,0 +1,11 @@
+.row
+  .col-12
+    %h1= administrador_helper(self).resource_title_for_show(@resource)
+
+.row
+  .col-12
+    = resource_table(resource: @resource) do |table|
+      = render 'show_table', table: table
+
+  .col-12.d-flex
+    = render partial: 'show_actions', locals: { resource: @resource }

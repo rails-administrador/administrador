@@ -24,3 +24,7 @@
     font-size: 12px;
     line-height: 1.42857;
 }
+
+.btn-circle.btn-lg i {
+  line-height: 2.4rem;
+}

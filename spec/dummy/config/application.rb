@@ -15,6 +15,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 require "pry-rails"
+require "responders"
 require "administrador"
 
 module Dummy

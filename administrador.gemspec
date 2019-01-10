@@ -17,8 +17,12 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.2.1"
   s.add_dependency "haml-rails"
+  s.add_dependency "rao-component"
+  s.add_dependency "rao-resources_controller"
   s.add_dependency "rao-view_helper"
   s.add_dependency "route_translator"
+  s.add_dependency "simple_form"
+  s.add_dependency "rails-i18n"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
@@ -28,4 +32,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "capybara"
   s.add_development_dependency "pry-rails"
+  s.add_development_dependency "responders"
 end
