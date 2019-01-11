@@ -31,4 +31,8 @@ module Dummy
 end
 
 $LOAD_PATH << Rails.root.join('engines', 'blorgh', 'lib')
+$LOAD_PATH << Rails.root.join('engines', 'news', 'lib')
+$LOAD_PATH << Rails.root.join('engines', 'news_backend', 'lib')
 require 'blorgh'
+require 'news'
+require 'news_backend'

@@ -36,10 +36,10 @@
                   = breadcrumbs(self).render
                 #main-content
                   = yield
-    = render 'main_sidebar_left'
+    = render 'engine_navigation'
     = render 'main_sidebar_right'
     = offcanvas(self).offcanvas('offcanvas-right', modifiers: 'right,overlay', triggerButton: '#offcanvas-right-trigger' )
-    = offcanvas(self).offcanvas('offcanvas-left', modifiers: 'left,overlay', triggerButton: '#offcanvas-left-trigger' )
+    = offcanvas(self).offcanvas('engine-navigation', modifiers: 'left,overlay', triggerButton: '#engine-navigation-trigger' )
     / Optional JavaScript
     / Popper.js JS
     %script{:crossorigin => "anonymous", :integrity => "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"}

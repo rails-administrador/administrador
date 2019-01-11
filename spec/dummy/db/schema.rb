@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_151525) do
+ActiveRecord::Schema.define(version: 2019_01_11_155355) do
 
   create_table "blorgh_posts", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,22 @@ ActiveRecord::Schema.define(version: 2019_01_10_151525) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "news_categories", force: :cascade do |t|
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news_items", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "title"
+    t.text "body"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_news_items_on_category_id"
   end
 
 end

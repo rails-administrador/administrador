@@ -1,5 +1,12 @@
 de:
   administrador:
+    application:
+      engine_navigation:
+        home: 'Home'
+    home_controller:
+      base:
+        index:
+          title: "%{engine_name}"
     resources_controller:
       base:
         index:

@@ -11,11 +11,19 @@ module Administrador
     end
 
     def to_key
-      @name.underscore
+      @name.underscore.split("/")
+    end
+
+    def model_name
+       OpenStruct.new param_key: self.class.name.underscore.gsub('/', '_')
+    end
+
+    def translated_name
+      I18n.t("classes.#{engine.name.underscore}")
     end
 
     def router_name
-      @name.deconstantize.underscore
+      @name.deconstantize.underscore.gsub('/', '_')
     end
 
     def configuration
