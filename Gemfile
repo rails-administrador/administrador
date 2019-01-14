@@ -13,3 +13,4 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'rao-component', path: '../rao/rao-component'

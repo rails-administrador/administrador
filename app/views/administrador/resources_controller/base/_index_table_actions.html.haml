@@ -2,12 +2,12 @@
   - capture_haml do
     .w-100.d-flex
       .btn-group.ml-auto
-        = link_to(resource, class: 'btn btn-sm btn-responsive btn-primary') do
+        = link_to(resource, class: 'show btn btn-sm btn-responsive btn-primary') do
           %i.fas.fa-eye
           %span.btn-text= t('.show')
-        = link_to([:edit, resource], class: 'btn btn-sm btn-responsive btn-secondary') do
+        = link_to([:edit, resource], class: 'edit btn btn-sm btn-responsive btn-secondary') do
           %i.fas.fa-edit
           %span.btn-text= t('.edit')
-        = link_to(resource, class: 'btn btn-sm btn-responsive btn-danger', method: :delete) do
+        = link_to(resource, class: 'destroy btn btn-sm btn-responsive btn-danger', method: :delete) do
           %i.fas.fa-fire
           %span.btn-text= t('.destroy')
