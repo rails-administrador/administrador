@@ -7,6 +7,10 @@ Why do we need another one?
 Most admin UIs need to be hacked or bent to support engines. This admin UI thinks
 engines first, main-app second. ;)
 
+## Philosophy
+
+Administrador thinks in engines, resources and services.
+
 ## Prerequisites
 
 If you are using rails <= 4.0 you have to add the responders gem to you Gemfile:
@@ -42,6 +46,21 @@ $ rails g administrador:install
 
 Look at the initializer at config/initializers/administrador.rb for configuration
 options.
+
+### Adding and engine to administrador
+
+```ruby
+Administrador.configure do |config|
+  config.register_engine 'Blorgh::Engine', {}
+end
+```
+### Stylesheets and Javascripts
+
+Administrador assumes, that you have an application.js and application.css in your engine.
+For example if you have a Blorgh-Engine, you should have following files inside the engine:
+
+/app/assets/javascripts/blorgh/application.js
+/app/assets/stylesheets/blorgh/application.css
 
 ## Usage
 

@@ -1,2 +1,4 @@
 
-  mount Administrador::Engine, at: '/'
+  localized do
+    mount Administrador::Engine, at: '/administrador-engine'
+  end

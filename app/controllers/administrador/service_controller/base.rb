@@ -1,7 +1,7 @@
 module Administrador
-  module ResourcesController
+  module ServiceController
     class Base < Administrador::ApplicationController
-      include Administrador::Controller::ResourcesConcern
+      include Administrador::Controller::ServiceConcern
     end
   end
 end

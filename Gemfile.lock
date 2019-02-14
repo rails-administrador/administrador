@@ -1,7 +1,7 @@
 PATH
   remote: ../rao/rao-component
   specs:
-    rao-component (0.0.6.pre)
+    rao-component (0.0.8.pre)
       haml-rails
       rails
       rao

@@ -1,0 +1,7 @@
+table.table-xs {
+  font-size: .75rem;
+}
+
+table.table-xs th, table.table-xs td {
+  padding: 0.25rem;
+}

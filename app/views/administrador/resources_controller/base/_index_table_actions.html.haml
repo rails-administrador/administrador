@@ -1,13 +1,16 @@
-= table.column(:actions, label: nil) do |resource|
+= table.column(:actions, title: false) do |resource|
   - capture_haml do
     .w-100.d-flex
       .btn-group.ml-auto
-        = link_to(resource, class: 'show btn btn-sm btn-responsive btn-primary') do
-          %i.fas.fa-eye
-          %span.btn-text= t('.show')
-        = link_to([:edit, resource], class: 'edit btn btn-sm btn-responsive btn-secondary') do
-          %i.fas.fa-edit
-          %span.btn-text= t('.edit')
-        = link_to(resource, class: 'destroy btn btn-sm btn-responsive btn-danger', method: :delete) do
-          %i.fas.fa-fire
-          %span.btn-text= t('.destroy')
+        - if available_rest_actions.include?(:show)
+          = link_to({ action: :show, id: resource.to_param }, class: 'show btn btn-xs btn-responsive btn-primary') do
+            %i.fas.fa-eye
+            %span.btn-text= t('.show')
+        - if available_rest_actions.include?(:edit)
+          = link_to({ action: :edit, id: resource.to_param }, class: 'edit btn btn-xs btn-responsive btn-secondary') do
+            %i.fas.fa-edit
+            %span.btn-text= t('.edit')
+        - if available_rest_actions.include?(:delete)
+          = link_to({ action: :show, id: resource.to_param }, class: 'destroy btn btn-xs btn-responsive btn-danger', method: :delete) do
+            %i.fas.fa-fire
+            %span.btn-text= t('.destroy')

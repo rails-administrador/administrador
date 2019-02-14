@@ -1,3 +1,4 @@
 .ml-auto
-  = link_to({ action: :new }, class: 'btn btn-success btn-circle btn-lg') do
-    %i.fas.fa-plus
+  - if available_rest_actions.include?(:new)
+    = link_to({ action: :new }, class: 'btn btn-success btn-circle btn-lg') do
+      %i.fas.fa-plus

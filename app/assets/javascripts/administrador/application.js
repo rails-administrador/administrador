@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require rao-component/acts_as_list
 //= require_tree .

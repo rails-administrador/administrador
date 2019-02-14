@@ -30,7 +30,7 @@ module Administrador
 
         if r = c.instance_variable_get(:@resource).presence
           if r.persisted?
-            breadcrumbs << { label: c.administrador_helper(c).resource_title_for_show(r), url: c.url_for(action: :show, id: r.to_param), link_html_options: {}, li_html_options: {} }
+            breadcrumbs << { label: c.administrador_helper(c).resource_title(r), url: c.url_for(action: :show, id: r.to_param), link_html_options: {}, li_html_options: {} }
           end
         end
 
