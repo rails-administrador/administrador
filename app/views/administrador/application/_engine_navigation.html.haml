@@ -1,0 +1,20 @@
+%aside#engine-navigation.py-2
+  .container-fluid
+    .row
+      .col-12
+        - administrador_helper(self).engines.each do |_, engine|
+          .administrador-engine-in-sidebar.mb-4{ id: dom_id(engine), class: dom_class(engine) }
+            %h5.administrador-engine-name= engine.translated_name
+            .list-group
+              %a.list-group-item.administrador-link-to-engine-home{ href: send(engine.router_name).root_path }
+                %i.fas.fa-home
+                %span.hidden-sm-down.small= t('.home')
+              - engine.resources_controllers.each do |rc|
+                %a.list-group-item.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
+                  %i.fas.fa-folder
+                  %span.hidden-sm-down.small= rc.resource_class.model_name.human(count: :other)
+                  %span.float-right.badge.badge-pill.badge-light= rc.resource_count
+              - engine.service_controllers.each do |sc|
+                %a.list-group-item{ href: send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :new) }
+                  %i.fas.fa-running
+                  %span.hidden-sm-down.small= sc.service_class.model_name.human(count: :other)

@@ -1,0 +1,7 @@
+%nav{"aria-label" => "breadcrumb"}
+  %ol.breadcrumb
+    - breadcrumbs.each do |b|
+      - if b.is_a?(String)
+        %li.breadcrumb-item = b
+      - else
+        %li.breadcrumb-item{ b[:li_html_options] }= link_to(b[:label], b[:url], b[:link_html_options])

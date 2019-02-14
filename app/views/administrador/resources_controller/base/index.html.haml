@@ -1,0 +1,22 @@
+.row
+  .col-12
+    %h1= t('.title', inflections)
+
+  - if Administrador.features?(:rao_query)
+    .col-12
+      = query_helper(self).form_for(@collection, url: {}, html: { class: 'administrador-query-form form-inline' }, method: :get) do |f|
+        = render partial: 'query_form', locals: { form: f }
+        = render partial: 'query_form_buttons', locals: { form: f }
+
+  .col-12
+    = collection_table(collection: @collection, resource_class: resource_class, table_html: "table #{resource_class.name.underscore.pluralize.gsub('/', '-')} table-xs") do |table|
+      = render partial: 'index_table', locals: { table: table }
+      = render partial: 'index_table_actions', locals: { table: table }
+  
+  - if Administrador.features?(:kaminari) && @collection.respond_to?(:total_pages)
+    .col-12.d-flex
+      .mx-auto
+        = render partial: 'pagination', locals: { collection: @collection }
+
+  .col-12.d-flex
+    = render partial: 'index_actions'

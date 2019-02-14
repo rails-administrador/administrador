@@ -1,5 +1,5 @@
 module Administrador
-  class HomeController < ApplicationController
+  class HomeController < Administrador::ApplicationController
     def index
     end
   end

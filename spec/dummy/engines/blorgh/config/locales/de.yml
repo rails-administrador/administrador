@@ -1,0 +1,8 @@
+de:
+  activerecord:
+    models:
+      blorgh/post:
+        one: Post
+        other: Posts
+  classes:
+    blorgh/engine: 'Blorgh'

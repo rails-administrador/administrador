@@ -1,0 +1,3 @@
+- flash.each do |message_context, message|
+  .alert.alert-dismissible.fade.show{ class: "alert-#{message_context}" }
+    = message

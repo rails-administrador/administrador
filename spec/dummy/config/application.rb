@@ -14,13 +14,15 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
+require "pry-rails"
+require "responders"
 require "administrador"
 
 module Dummy
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -28,3 +30,9 @@ module Dummy
   end
 end
 
+$LOAD_PATH << Rails.root.join('engines', 'blorgh', 'lib')
+$LOAD_PATH << Rails.root.join('engines', 'news', 'lib')
+$LOAD_PATH << Rails.root.join('engines', 'news_backend', 'lib')
+require 'blorgh'
+require 'news'
+require 'news_backend'

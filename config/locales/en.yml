@@ -1,3 +1,31 @@
 en:
+  administrador:
+    application:
+      engine_navigation:
+        home: 'Home'
+    home_controller:
+      base:
+        index:
+          title: "%{engine_name}"
+    resources_controller:
+      base:
+        index:
+          title: "%{collection_name}"
+        new:
+          title: "Edit %{resource_name}"
+    service_controller:
+      base:
+        new:
+          back: "Back"
+          title: "Run %{service_name}"
+  administrador/breadcrumbs_view_helper:
+    generate_breadcrumbs!:
+      home: 'Home'
+  controller:
+    breadcrumbs_concern:
+      actions:
+        default:
+          edit: 'Edit'
+          new: 'New'
   routes:
-    administrador: backend
+    administrador-engine: backend

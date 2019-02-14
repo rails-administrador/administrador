@@ -1,3 +1,41 @@
 de:
+  administrador:
+    application:
+      engine_navigation:
+        home: 'Home'
+    home_controller:
+      base:
+        index:
+          title: "%{engine_name}"
+    resources_controller:
+      base:
+        index:
+          title: "%{collection_name}"
+        new:
+          title: "%{resource_name} erstellen"
+        new_actions:
+          back: "Zurück"
+    service_controller:
+      base:
+        new:
+          title: "%{service_name} ausführen"
+        new_actions:
+          back: "Zurück"
+  administrador/breadcrumbs_view_helper:
+    generate_breadcrumbs!:
+      home: 'Home'
+  controller:
+    breadcrumbs_concern:
+      actions:
+        default:
+          edit: 'Bearbeiten'
+          new: 'Erstellen'
+  helpers:
+    submit:
+      administrador:
+        service:
+          create: 'Ausführen'
+      q:
+        create: 'Filtern'
   routes:
-    administrador: admin
+    administrador-engine: backend

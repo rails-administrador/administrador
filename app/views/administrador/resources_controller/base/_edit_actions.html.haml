@@ -1,0 +1,7 @@
+= link_to({ action: :index }, class: 'btn btn-light btn-responsive') do
+  %i.fas.fa-arrow-left
+  %span.btn-text= t('.back')
+
+.ml-auto
+  = link_to(resource, class: 'btn btn-success btn-circle btn-lg') do
+    %i.fas.fa-eye
