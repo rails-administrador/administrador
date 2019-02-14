@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.2.1"
   s.add_dependency "coffee-rails"
   s.add_dependency "haml-rails"
+  s.add_dependency "rao-query", ">= 0.0.11.pre"
   s.add_dependency "rao-component", ">= 0.0.11.pre"
   s.add_dependency "rao-resources_controller", ">= 0.0.11.pre"
   s.add_dependency "rao-service_controller", ">= 0.0.11.pre"

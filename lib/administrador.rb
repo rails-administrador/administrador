@@ -1,6 +1,7 @@
 require "coffee-rails"
 require "haml-rails"
 require "route_translator"
+require "rao-query"
 require "rao-component"
 require "rao-view_helper"
 require "rao-resources_controller"
