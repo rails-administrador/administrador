@@ -27,5 +27,7 @@ en:
         default:
           edit: 'Edit'
           new: 'New'
+        service:
+          new: 'Ausführen'
   routes:
     administrador-engine: backend

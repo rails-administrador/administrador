@@ -30,6 +30,8 @@ de:
         default:
           edit: 'Bearbeiten'
           new: 'Erstellen'
+        service:
+          new: 'Ausführen'
   helpers:
     submit:
       administrador:

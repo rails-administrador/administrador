@@ -51,13 +51,13 @@
                     = administrador_helper(self).flash_messages
                   = yield
 
-    = render '/administrador/application/engine_navigation'
-    = render '/administrador/application/i18n_navigation'
-    = render '/administrador/application/main_sidebar_right'
-    = offcanvas(self).offcanvas('offcanvas-right', modifiers: 'right,overlay', triggerButton: '#offcanvas-right-trigger' )
-    = offcanvas(self).offcanvas('engine-navigation', modifiers: 'left,overlay', triggerButton: '#engine-navigation-trigger' )
-    = offcanvas(self).offcanvas('i18n-navigation', modifiers: 'right,overlay', triggerButton: '#i18n-navigation-trigger' )
-    = offcanvas(self).offcanvas('i18n-navigation', modifiers: 'right,overlay', triggerButton: '#i18n-navigation-trigger' )
+    = render "/administrador/application/sidebars/engine"
+    = offcanvas(self).offcanvas("engine-sidebar", modifiers: 'left,overlay', triggerButton: "#engine-sidebar-trigger" )
+    
+    - %w(search messages i18n user notifications settings).each do |name|
+      = render "/administrador/application/sidebars/#{name}"
+      = offcanvas(self).offcanvas("#{name}-sidebar", modifiers: 'right,overlay', triggerButton: "##{name}-sidebar-trigger" )
+
     / Optional JavaScript
     / Popper.js JS
     %script{:crossorigin => "anonymous", :integrity => "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"}

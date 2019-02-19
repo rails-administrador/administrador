@@ -1,6 +1,8 @@
-%aside#i18n-navigation.py-2
+%aside#i18n-sidebar.py-2
   .container-fluid
     .row
+      .col-12
+        %h5= t('.title')
       .col-12
         - I18n.available_locales.each do |locale|
           = link_to(locale, url_for({ locale: locale }))
