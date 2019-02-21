@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "haml-rails"
   s.add_dependency "rao-query", ">= 0.0.12.pre"
   s.add_dependency "rao-component", ">= 0.0.12.pre"
+  s.add_dependency "rao-resource_controller", ">= 0.0.12.pre"
   s.add_dependency "rao-resources_controller", ">= 0.0.12.pre"
   s.add_dependency "rao-service_controller", ">= 0.0.12.pre"
   s.add_dependency "rao-view_helper", ">= 0.0.12.pre"

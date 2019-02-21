@@ -33,8 +33,19 @@ module Administrador
     def resources_controllers
       if configuration.respond_to?(:registered_controllers)
         configuration.registered_controllers.call
+      elsif configuration.respond_to?(:resources_controllers)
+        configuration.resources_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :registered_controllers.")
+        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :resources_controllers.")
+        []
+      end
+    end
+
+    def resource_controllers
+      if configuration.respond_to?(:resource_controllers)
+        configuration.resource_controllers.call
+      else
+        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :resource_controllers.")
         []
       end
     end
@@ -42,8 +53,10 @@ module Administrador
     def service_controllers
       if configuration.respond_to?(:registered_services)
         configuration.registered_services.call
+      elsif configuration.respond_to?(:service_controllers)
+        configuration.service_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :registered_services.")
+        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :service_controllers.")
         []
       end
     end

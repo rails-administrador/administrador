@@ -55,7 +55,7 @@ module Administrador
 
         module ClassMethods
           def available_rest_actions
-            %i(create new show edit update delete list)
+            %i(index new create show edit update destroy)
           end
         end
 

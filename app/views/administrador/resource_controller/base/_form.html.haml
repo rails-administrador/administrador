@@ -1,0 +1,8 @@
+- administrador_helper(self).filter_attributes_for_form(resource_class.attribute_names).each do |name|
+  - if form.object.class.columns_hash[name].try(:type) == :hstore
+    = simple_fields_for name do |hstore_form|
+      - if form.object.send(name).respond_to?(:each)
+        - form.object.send(name).each do |key, value|
+          = hstore_form.input key, input_html: { value: value }
+  - else
+    = form.input name
