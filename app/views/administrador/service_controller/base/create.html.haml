@@ -1,0 +1,20 @@
+.row
+  .col-12
+    %h1= t('.title', inflections)
+
+= render 'create_before_service_output', result: @result
+
+.row
+  .col-12
+    %table.table.table-sm.table-striped.table-monospaced
+      %tbody
+        - @result.messages.each_with_index do |message, index|
+          %tr
+            %td= index + 1
+            %td= message
+
+= render 'create_after_service_output', result: @result
+
+= link_to({ action: :new }, class: 'btn btn-light btn-responsive') do
+  %i.fas.fa-arrow-left
+  %span.btn-text= t('.back')

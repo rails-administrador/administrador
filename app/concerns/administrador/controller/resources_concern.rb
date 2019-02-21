@@ -19,7 +19,7 @@ module Administrador
       end
 
       def load_collection_scope
-        with_conditions_from_query(resource_class)
+        with_conditions_from_query(super)
       end if Administrador.features?(:rao_query)
 
 
