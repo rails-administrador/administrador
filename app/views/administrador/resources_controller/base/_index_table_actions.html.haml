@@ -11,6 +11,6 @@
             %i.fas.fa-edit
             %span.btn-text= t('.edit')
         - if available_rest_actions.include?(:delete)
-          = link_to({ action: :show, id: resource.to_param }, class: 'destroy btn btn-xs btn-responsive btn-danger', method: :delete) do
+          = link_to({ action: :show, id: resource.to_param }, class: 'destroy btn btn-xs btn-responsive btn-danger', method: :delete, 'data-confirm': I18n.t('administrador.controller.confirmations.delete')) do
             %i.fas.fa-fire
             %span.btn-text= t('.destroy')

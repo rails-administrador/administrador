@@ -3,16 +3,27 @@ en:
     application:
       engine_navigation:
         home: 'Home'
+    controller:
+      confirmations:
+        delete: "Are you sure?"
     home_controller:
       base:
         index:
           title: "%{engine_name}"
     resources_controller:
       base:
+        edit_actions:
+          back: "Back"
         index:
           title: "%{collection_name}"
         new:
-          title: "Edit %{resource_name}"
+          title: "New %{resource_name}"
+        new_actions:
+          back: "Back"
+        query_form_buttons:
+          reset: "Reset"
+        show_actions:
+          back: "Back"
     service_controller:
       base:
         new:
@@ -29,5 +40,6 @@ en:
           new: 'New'
         service:
           new: 'Ausführen'
+      page: "Page %{page_number}"
   routes:
     administrador-engine: backend

@@ -3,17 +3,26 @@ de:
     application:
       engine_navigation:
         home: 'Home'
+    controller:
+      confirmations:
+        delete: "Sind Sie sicher?"
     home_controller:
       base:
         index:
           title: "%{engine_name}"
     resources_controller:
       base:
+        edit_actions:
+          back: "Zurück"
         index:
           title: "%{collection_name}"
         new:
           title: "%{resource_name} erstellen"
         new_actions:
+          back: "Zurück"
+        query_form_buttons:
+          reset: "Zurücksetzen"
+        show_actions:
           back: "Zurück"
     service_controller:
       base:
@@ -28,10 +37,12 @@ de:
     breadcrumbs_concern:
       actions:
         default:
+          create: 'Erstellen'
           edit: 'Bearbeiten'
           new: 'Erstellen'
         service:
           new: 'Ausführen'
+      page: "Seite %{page_number}"
   helpers:
     submit:
       administrador:

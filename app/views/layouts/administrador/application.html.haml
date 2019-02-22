@@ -35,6 +35,8 @@
     = csp_meta_tag
     = stylesheet_link_tag    "administrador/application", media: "all"
     = javascript_include_tag "administrador/application"
+
+    = render partial: 'html_head_extras'
   %body
     .container-fluid.c-offcanvas-content-wrapper
       .row
