@@ -11,3 +11,9 @@ spec/dummy/tmp/
 
 # Ignore coverage report
 /coverage
+
+# Ignore backup files
+*~
+
+# Ignore built gems
+*.gem

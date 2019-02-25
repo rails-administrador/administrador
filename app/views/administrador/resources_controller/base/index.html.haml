@@ -10,7 +10,7 @@
         = render partial: 'query_form_buttons', locals: { form: f }
 .row
   .col-12
-    = render 'before_index_table', locals: { collection: @collection }
+    = render partial: 'before_index_table', locals: { collection: @collection }
 
 .row
   .col-12
