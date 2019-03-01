@@ -5,7 +5,7 @@ en:
         home: 'Home'
     controller:
       confirmations:
-        delete: "Are you sure?"
+        destroy: "Are you sure?"
     home_controller:
       base:
         index:
@@ -24,6 +24,7 @@ en:
           reset: "Reset"
         show_actions:
           back: "Back"
+          destroy: "Delete"
     service_controller:
       base:
         new:

@@ -1,11 +1,24 @@
 de:
   administrador:
     application:
-      engine_navigation:
-        home: 'Home'
+      sidebars:
+        engine:
+          home: 'Home'
+        i18n:
+          title: 'Überseztungen'
+        messages:
+          title: 'Nachrichten'
+        notifications:
+          title: 'Benachrichtigungen'
+        settings:
+          title: 'Einstellungen'
+        search:
+          title: 'Suche'
+        user:
+          title: 'Profil'
     controller:
       confirmations:
-        delete: "Sind Sie sicher?"
+        destroy: "Sind Sie sicher?"
     home_controller:
       base:
         index:
@@ -26,6 +39,7 @@ de:
           reset: "Zurücksetzen"
         show_actions:
           back: "Zurück"
+          destroy: "Löschen"
     service_controller:
       base:
         new:

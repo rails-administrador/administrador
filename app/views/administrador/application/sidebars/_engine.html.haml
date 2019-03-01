@@ -10,14 +10,21 @@
                 %i.fas.fa-home
                 %span.hidden-sm-down.small= t('.home')
               - engine.resources_controllers.each do |rc|
-                %a.list-group-item.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
-                  %i.fas.fa-folder
-                  %span.hidden-sm-down.small= rc.resource_class.model_name.human(count: :other)
-                  %span.float-right.badge.badge-pill.badge-light= rc.resource_count
+                .list-group-item
+                  %a.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
+                    %i.fas.fa-folder
+                    %span.hidden-sm-down.small= rc.resource_class.model_name.human(count: :other)
+                  - if rc.available_rest_actions.include?(:new)
+                    %a.float-right.btn.btn-xs.btn-primary.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                      %i.fas.fa-plus
+                  %span.administrador-object-count.float-right.badge.badge-pill.badge-light= rc.resource_count
               - engine.resource_controllers.each do |rc|
                 %a.list-group-item.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :show) }
                   %i.fas.fa-file
                   %span.hidden-sm-down.small= rc.resource_class.model_name.human
+                - if rc.available_rest_actions.include?(:new)
+                  %a.float-right.btn.btn-xs.btn-primary.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                    %i.fas.fa-plus
               - engine.service_controllers.each do |sc|
                 %a.list-group-item{ href: send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :new) }
                   %i.fas.fa-running
