@@ -4,7 +4,7 @@
 
 .row
   .col-12
-    = render partial: 'before_show_table', locals: { resource: @resource }
+    .before-show-table= render partial: 'before_show_table', locals: { resource: @resource }
 .row
   .col-12
     = resource_table(resource: @resource) do |table|
@@ -12,7 +12,8 @@
 
 .row
   .col-12
-    = render partial: 'after_show_table', locals: { resource: @resource }
-
-  .col-12.d-flex
+    .after-show-table= render partial: 'after_show_table', locals: { resource: @resource }
+    
+.row
+  .show-actions.col-12.d-flex
     = render partial: 'show_actions', locals: { resource: @resource }
