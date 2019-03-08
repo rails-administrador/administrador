@@ -60,5 +60,14 @@ module Administrador
         []
       end
     end
+
+    def sidebar_controllers
+      if configuration.respond_to?(:sidebar_controllers)
+        configuration.sidebar_controllers.call
+      else
+        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :sidebar_controllers.")
+        []
+      end
+    end
   end
 end

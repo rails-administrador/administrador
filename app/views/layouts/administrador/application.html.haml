@@ -55,11 +55,8 @@
 
     = render "/administrador/application/sidebars/engine"
     = offcanvas(self).offcanvas("engine-sidebar", modifiers: 'left,overlay', triggerButton: "#engine-sidebar-trigger" )
-    
-    - %w(search messages i18n user notifications settings).each do |name|
-      = render "/administrador/application/sidebars/#{name}"
-      = offcanvas(self).offcanvas("#{name}-sidebar", modifiers: 'right,overlay', triggerButton: "##{name}-sidebar-trigger" )
 
+    = administrador_helper(self).render_engine_sidebars
     / Optional JavaScript
     / Popper.js JS
     %script{:crossorigin => "anonymous", :integrity => "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"}

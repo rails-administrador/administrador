@@ -29,6 +29,12 @@ module Administrador
       end
     end
 
+    def render_engine_sidebars
+      engines.collect do |_, engine|
+        c.render partial: 'administrador/application_view_helper/render_engine_sidebars', locals: { engine: engine }
+      end.join.html_safe
+    end
+
     private
 
     def bootstrapify_flash_keys(flash)

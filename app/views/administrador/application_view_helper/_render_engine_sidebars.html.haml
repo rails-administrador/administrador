@@ -1,0 +1,4 @@
+- engine.sidebar_controllers.each do |sc|
+  - id = sc.name.underscore.gsub('/', '-')
+  %aside.py-2{ id: "#{id}-sidebar" }
+  = offcanvas(self).offcanvas("#{id}-sidebar", modifiers: 'right,overlay', triggerButton: "##{id}-trigger", load: send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :show, format: :html, only_path: true) )
