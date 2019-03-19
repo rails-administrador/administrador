@@ -1,2 +1,5 @@
 - administrador_helper(self).filter_attributes_for_show(resource_class.attribute_names).each do |name|
-  = table.row name
+  - if name.end_with?('_id') && table.resource.respond_to?(name.chomp("_id"))
+    = table.association name.chomp("_id"), label_method: ->(r) { administrador_helper(self).label_for(r) }
+  - else
+    = table.row name

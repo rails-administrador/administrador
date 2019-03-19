@@ -68,3 +68,9 @@ de:
         create: 'Filtern'
   routes:
     administrador-engine: backend
+  views:
+    pagination:
+      first: "<<"
+      next: ">"
+      last: ">>"
+      previous: "<"

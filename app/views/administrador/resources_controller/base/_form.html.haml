@@ -4,5 +4,7 @@
       - if form.object.send(name).respond_to?(:each)
         - form.object.send(name).each do |key, value|
           = hstore_form.input key, input_html: { value: value }
+  - elsif name.end_with?('_id') && !resource_class.reflect_on_association(name.chomp('_id')).options[:polymorphic]
+    = form.association name.chomp("_id")
   - else
     = form.input name
