@@ -14,7 +14,7 @@
 
 .row
   .col-12
-    = collection_table(collection: @collection, resource_class: resource_class, table_html: "table table-responsive #{resource_class.name.underscore.pluralize.gsub('/', '-')} table-xs") do |table|
+    = collection_table(collection: @collection, resource_class: resource_class, table_html: "collection-table table table-responsive #{resource_class.name.underscore.pluralize.gsub('/', '-')} table-xs") do |table|
       = render partial: 'index_table', locals: { table: table }
       = render partial: 'index_table_actions', locals: { table: table }
   

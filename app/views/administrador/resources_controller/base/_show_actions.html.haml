@@ -3,8 +3,10 @@
   %span.btn-text= t('.back')
 
 .ml-auto
-  = link_to(url_for([resource]), class: 'destroy btn btn-danger btn-circle btn-lg', method: :delete, 'data-confirm': I18n.t('administrador.controller.confirmations.destroy')) do
-    %i.fas.fa-fire
+  - if available_rest_actions.include?(:destroy)
+    = link_to([resource_namespace, resource], class: 'destroy btn btn-danger btn-circle btn-lg', method: :delete, 'data-confirm': I18n.t('administrador.controller.confirmations.destroy')) do
+      %i.fas.fa-fire
 
-  = link_to([:edit, resource], class: 'btn btn-success btn-circle btn-lg') do
-    %i.fas.fa-edit
+  - if available_rest_actions.include?(:edit)
+    = link_to([:edit, resource_namespace, resource], class: 'btn btn-success btn-circle btn-lg') do
+      %i.fas.fa-edit

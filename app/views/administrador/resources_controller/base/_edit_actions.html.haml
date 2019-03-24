@@ -3,5 +3,5 @@
   %span.btn-text= t('.back')
 
 .ml-auto
-  = link_to(resource, class: 'btn btn-success btn-circle btn-lg') do
+  = link_to([resource_namespace, resource], class: 'btn btn-success btn-circle btn-lg') do
     %i.fas.fa-eye
