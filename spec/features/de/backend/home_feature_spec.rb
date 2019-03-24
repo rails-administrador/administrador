@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe '/de/admin', type: :feature do
-  let(:base_path) { '/de/admin' }
+RSpec.describe '/de/backend', type: :feature do
+  let(:base_path) { '/de/backend' }
 
   before(:each) { visit(base_path) }
 

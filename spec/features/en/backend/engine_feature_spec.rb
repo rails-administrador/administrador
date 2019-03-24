@@ -9,9 +9,9 @@ RSpec.describe '/en/backend', type: :feature do
   describe 'engine in sidebar' do
     before(:each) { visit(base_path) }
 
-    it { within('#engine-navigation') { expect(page.body).to have_css('.administrador-engine-name', text: I18n.t("classes.#{engine.name.underscore}")) } }
-    it { within('#engine-navigation') { expect(page.body).to have_css('.administrador-link-to-engine-home', text: 'Home') } }
-    it { within('#engine-navigation') { expect(page.body).to have_css('.administrador-link-to-resources', text: 'Posts') } }
+    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-engine-name', text: I18n.t("classes.#{engine.name.underscore}")) } }
+    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-link-to-engine-home', text: 'Home') } }
+    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-link-to-resources', text: 'Posts') } }
   end
 
   describe 'engine home' do

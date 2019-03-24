@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount Administrador::Engine, at: "/"
+  localized do
+    mount Administrador::Engine, at: "/administrador-engine"
+  end
   mount Blorgh::Engine, at: "/blorgh"
   mount News::Backend::Engine, at: "/news-backend"
 end

@@ -37,13 +37,13 @@ RSpec.describe '/en/backend', type: :feature do
   end
 
   describe 'destroy' do
-    let(:success_message) { "Foo" }
+    let(:success_message) { I18n.t('flash.actions.destroy.notice', resource_name: resource.class.model_name.human) }
 
     before(:each) do
       resource
       visit(administrador_root_path)
       within("##{dom_id(engine)}") { click_link(resource_class.model_name.human(count: :other)) }
-      binding.pry
+      within('#item_1-actions') { find(".destroy").click }
     end
     it { expect(page.status_code).to eq(200) }
     it { expect(current_path).to eq(base_path) }
