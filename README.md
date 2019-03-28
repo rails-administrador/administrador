@@ -1,3 +1,5 @@
+[![Travis CI](https://travis-ci.org/rails-administrador/administrador.svg?branch=master)](https://travis-ci.org/rails-administrador/administrador)
+
 # Administrador
 
 Yet another rails admin UI.
