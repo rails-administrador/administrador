@@ -1,12 +1,4 @@
 PATH
-  remote: ../rao/rao-component
-  specs:
-    rao-component (0.0.15.pre)
-      haml-rails
-      rails
-      rao
-
-PATH
   remote: .
   specs:
     administrador (0.0.4.pre)
@@ -227,6 +219,10 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
     rao (0.0.15.pre)
+    rao-component (0.0.15.pre)
+      haml-rails
+      rails
+      rao
     rao-query (0.0.15.pre)
       rails
       rao
@@ -327,7 +323,6 @@ DEPENDENCIES
   guard-rspec
   launchy
   pry-rails
-  rao-component!
   responders
   rspec-rails
   simplecov
