@@ -29,6 +29,11 @@ module Administrador
       end.join.html_safe
     end
 
+    def body_html
+      css_classes = ['administrador', c.controller.class.name.underscore.gsub('/', '-').chomp('_controller'), c.action_name].compact.join(' ')
+      { class: css_classes }
+    end
+
     private
 
     def bootstrapify_flash_keys(flash)

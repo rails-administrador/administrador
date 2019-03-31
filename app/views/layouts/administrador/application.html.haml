@@ -37,7 +37,7 @@
     = javascript_include_tag "administrador/application"
 
     = render partial: 'html_head_extras'
-  %body
+  %body{ administrador_helper(self).body_html }
     .container-fluid.c-offcanvas-content-wrapper
       .row
         .col-12.px-0
