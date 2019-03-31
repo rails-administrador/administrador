@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrador (0.0.6.pre)
+    administrador (0.0.7.pre)
       bootstrap4-kaminari-views
       coffee-rails
       haml-rails
