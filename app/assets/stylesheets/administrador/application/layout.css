@@ -2,6 +2,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+#main-container {
+  padding-top: 1rem;
+}
+
 #main-navbar-tools .navbar-nav {
   flex-direction: row;
   flex-wrap: wrap;
@@ -34,10 +38,4 @@ body {
 
 #main-sidebar-bottom-content .btn {
   margin-bottom: 0.75rem;
-}
-
-#main-breadcrumbs ol.breadcrumb {
-  background-color: inherit !important;
-  padding-left: 0;
-  padding-right: 0;
 }

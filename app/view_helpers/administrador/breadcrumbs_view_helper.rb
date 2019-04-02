@@ -16,6 +16,15 @@ module Administrador
       end
     end
 
+    def url_for?(*routable)
+      begin
+        c.url_for(*routable)
+        true
+      rescue ActionController::UrlGeneratrionError
+        false
+      end
+    end
+
     def generate_breadcrumbs!
       [].tap do |breadcrumbs|
         breadcrumbs << { label: t('.home'), url: c.administrador.root_path, link_html_options: {}, li_html_options: {}}
@@ -24,9 +33,10 @@ module Administrador
           breadcrumbs << { label: t("classes.#{c.current_engine.name.underscore}"), url: send(c.current_engine.engine_name).root_path, link_html_options: {}, li_html_options: {} }
         end
 
-        # if c.respond_to?(:resource_class, true)
-        #   breadcrumbs << { label: c.resource_class.model_name.human(count: :other), url: c.url_for(action: :index), link_html_options: {}, li_html_options: {} }
-        # end
+        # if c.respond_to?(:resource_class, true) && c.respond_to?(:available_rest_actions) && c.available_rest_actions.include?(:index)
+        if c.respond_to?(:resource_class, true) && url_for?(action: :index)
+          breadcrumbs << { label: c.resource_class.model_name.human(count: :other), url: c.url_for(action: :index), link_html_options: {}, li_html_options: {} }
+        end
 
         if r = c.instance_variable_get(:@resource).presence
           if r.persisted?
@@ -40,7 +50,7 @@ module Administrador
 
         action_namespace = c.respond_to?(:service_class, true) ? :service : :default
 
-        if %w(new edit).include?(c.action_name)
+        if %w(new edit).include?(c.action_name) && url_for?(action: c.action_name)
           breadcrumbs << { label: t("controller.breadcrumbs_concern.actions.#{action_namespace}.#{c.action_name}"), url: { action: c.action_name }, link_html_options: {}, li_html_options: {} }
         end
 

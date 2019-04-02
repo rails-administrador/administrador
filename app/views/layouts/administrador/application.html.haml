@@ -43,11 +43,13 @@
         .col-12.px-0
           #main-navbar.mb-4
             = render '/administrador/application/navbar'
-          .container-fluid
+          #main-breadcrumbs.container-fluid
             .row
               .col-12
-                #main-breadcrumbs
-                  = breadcrumbs(self).render
+                = breadcrumbs(self).render
+          #main-container.container-fluid
+            .row
+              .col-12
                 #main-content
                   #flash-messages
                     = administrador_helper(self).flash_messages

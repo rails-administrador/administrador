@@ -1,0 +1,13 @@
+#main-breadcrumbs {
+  background-color: #e2e6ea;
+  margin-top: 4rem;
+}
+
+#main-breadcrumbs ol.breadcrumb {
+  background-color: inherit !important;
+  margin-bottom: 0;
+  /*
+  padding-left: 0;
+  padding-right: 0;
+  */
+}
