@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rao-view_helper",          ">= 0.0.16.pre"
   s.add_dependency "route_translator"
   s.add_dependency "simple_form"
+  s.add_dependency "simple_sidebar", ">= 0.0.4.pre"
   s.add_dependency "bootstrap4-kaminari-views"
   s.add_dependency "rails-i18n"
 

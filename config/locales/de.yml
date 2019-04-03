@@ -2,8 +2,6 @@ de:
   administrador:
     application:
       sidebars:
-        engine:
-          home: 'Home'
         i18n:
           title: 'Überseztungen'
         messages:

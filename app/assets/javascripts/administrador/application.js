@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require rao-component/acts_as_list
-//= require_tree .
+//= require simple_sidebar
+//= require_tree ./application
