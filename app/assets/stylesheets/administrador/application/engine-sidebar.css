@@ -1,7 +1,17 @@
-#engine-sidebar .administrador-object-count {
+#sidebar-engines .administrador-engine-actions {
+  width: 1rem;
+  min-height: 1px;
   margin-right: 1rem;
 }
 
-#engine-sidebar .list-group-item {
-  padding: 0.2rem 0.3rem;
+#sidebar-engines .administrador-engine-resources-count {
+  width: 1rem;
+}
+
+#sidebar-engines .administrador-engine a {
+  color: grey;
+}
+
+#sidebar-engines .administrador-engine .badge-pill {
+  min-width: 1.75rem;
 }

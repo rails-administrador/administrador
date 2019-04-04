@@ -9,15 +9,15 @@ RSpec.describe '/en/backend', type: :feature do
   describe 'engine in sidebar' do
     before(:each) { visit(base_path) }
 
-    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-engine-name', text: I18n.t("classes.#{engine.name.underscore}")) } }
-    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-link-to-engine-home', text: 'Home') } }
-    it { within('#engine-sidebar') { expect(page.body).to have_css('.administrador-link-to-resources', text: 'Posts') } }
+    it { within('#sidebar-engines') { expect(page.body).to have_css('.administrador-engine-name', text: I18n.t("classes.#{engine.name.underscore}")) } }
+    it { within('#sidebar-engines') { expect(page.body).to have_css('.administrador-link-to-engine-home', text: engine.translated_name) } }
+    it { within('#sidebar-engines') { expect(page.body).to have_css('.administrador-link-to-resources', text: 'Posts') } }
   end
 
   describe 'engine home' do
     before(:each) do
       visit(base_path)
-      within("##{dom_id(engine)}") { click_link('Home') }
+      within("##{dom_id(engine)}") { click_link(engine.translated_name) }
     end
 
     it { expect(current_path).to eq('/blorgh/') }
