@@ -2,7 +2,7 @@ module Administrador
   module EngineRoutable
     # This prevents missing method error when using localized
     # engines. The localized gem fails to create a default route
-    # name for enginges without a locale soffix. For example if you
+    # name for engines without a locale suffix. For example if you
     # have an engine named blorgh, the router should be named blorgh.
     # With localized you get blorgh_en, blorgh_de and so on. This concern
     # provides the router method without the locale as suffix.
