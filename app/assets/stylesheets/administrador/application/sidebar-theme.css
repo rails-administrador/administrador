@@ -3,4 +3,5 @@
 }
 .sidebar-left.sidebar-push, .sidebar-right.sidebar-push {
   margin-top: 4rem;
+  height: calc(100% - 4rem);
 }
