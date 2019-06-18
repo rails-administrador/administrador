@@ -5,7 +5,20 @@ Administrador.configure do |config|
   #
   config.resource_label_methods = [:administrador_title, :human, :name, :identifier, :to_s]
 
-  # config.register_engine 'Ecm::Blog::Backend::Engine', {}
+  # All controllers (for resources, services, sidebars, home, etc.) inherit
+  # from this controller.
+  #
+  # Default: config.base_controller_class_name = '::ApplicationController'
+  #
+  config.base_controller_class_name = '::ApplicationController'
 
-  # config.base_controller_class_name = '::ApplicationController'
+  # Enable additional features here.
+  #
+  # config.enable_feature(:kaminari, {})
+  # config.enable_feature(:rao_query, {})
+
+  # Engines that are registered will be shown in the administrador main menu
+  # sidebar. Additionally they can register sidebars.
+  #
+  # config.register_engine 'Ecm::Blog::Backend::Engine', {}
 end
