@@ -2,6 +2,6 @@
   - id = "sidebar-#{sc.name.underscore.gsub('/', '-')}"
   - position = sc.sidebar_position || :right
   - size = sc.sidebar_size || '250px'
-  - url = sc.sidebar_url || send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :show, format: :html, only_path: true)
+  - url = sc.sidebar_url || send(engine.router_name).send("#{sc.name.demodulize.underscore.gsub('_controller', '').singularize}_path")
   - mode = sc.sidebar_mode || :modal
   %aside.py-2{ id: id, data: { sidebar: { position: position, size: size, state: :closed, mode: :modal, load: url } } }
