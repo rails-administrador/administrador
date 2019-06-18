@@ -12,6 +12,8 @@ en:
           title: "%{engine_name}"
     resources_controller:
       base:
+        edit:
+          title: "New %{resource_name}"
         edit_actions:
           back: "Back"
         index:
