@@ -20,7 +20,7 @@ module Administrador
       begin
         c.url_for(*routable)
         true
-      rescue ActionController::UrlGeneratrionError
+      rescue ActionController::UrlGenerationError
         false
       end
     end
