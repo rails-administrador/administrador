@@ -27,10 +27,12 @@ module Administrador
 
     def generate_breadcrumbs!
       [].tap do |breadcrumbs|
+        # Add breadcrumb to home page
         breadcrumbs << { label: t('.home'), url: c.administrador.root_path, link_html_options: {}, li_html_options: {}}
-     
-        if c.respond_to?(:current_engine, true) && c.current_engine.present?
-          breadcrumbs << { label: t("classes.#{c.current_engine.name.underscore}"), url: send(c.current_engine.engine_name).root_path, link_html_options: {}, li_html_options: {} }
+
+        if c.respond_to?(:engine_class, true) && c.engine_class.present?
+          engine = Administrador::Configuration.engines[c.engine_class.name]
+          breadcrumbs << { label: t("classes.#{engine.engine.name.underscore}"), url: c.send(engine.router_name).root_path, link_html_options: {}, li_html_options: {} }
         end
 
         # if c.respond_to?(:resource_class, true) && c.respond_to?(:available_rest_actions) && c.available_rest_actions.include?(:index)

@@ -3,6 +3,8 @@ module Administrador
     module ApplicationConcern
       extend ActiveSupport::Concern
 
+      include Administrador::Controller::EngineConcern
+
       included do
         view_helper Administrador::ApplicationViewHelper, as: :administrador_helper
         view_helper Administrador::BreadcrumbsViewHelper, as: :breadcrumbs
