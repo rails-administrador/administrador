@@ -40,6 +40,8 @@ de:
           destroy: "Löschen"
     service_controller:
       base:
+        create:
+          title: "%{service_name} ausgeführt"
         new:
           title: "%{service_name} ausführen"
         new_actions:
@@ -55,6 +57,7 @@ de:
           edit: 'Bearbeiten'
           new: 'Erstellen'
         service:
+          create: 'Ausgeführt'
           new: 'Ausführen'
       page: "Seite %{page_number}"
   helpers:

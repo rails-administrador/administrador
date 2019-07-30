@@ -1,8 +1,19 @@
 en:
   administrador:
     application:
-      engine_navigation:
-        home: 'Home'
+      sidebars:
+        i18n:
+          title: 'Translations'
+        messages:
+          title: 'Messages'
+        notifications:
+          title: 'Notifications'
+        settings:
+          title: 'Settings'
+        search:
+          title: 'Search'
+        user:
+          title: 'Profile'
     controller:
       confirmations:
         destroy: "Are you sure?"
@@ -29,9 +40,12 @@ en:
           destroy: "Delete"
     service_controller:
       base:
+        create:
+          title: "Ran %{service_name}"
         new:
-          back: "Back"
           title: "Run %{service_name}"
+        new_actions:
+          back: "Back"
   administrador/breadcrumbs_view_helper:
     generate_breadcrumbs!:
       home: 'Home'
@@ -39,10 +53,25 @@ en:
     breadcrumbs_concern:
       actions:
         default:
+          create: 'Create'
           edit: 'Edit'
           new: 'New'
         service:
-          new: 'Ausführen'
+          create: 'Ran'
+          new: 'Run'
       page: "Page %{page_number}"
+  helpers:
+    submit:
+      administrador:
+        service:
+          create: 'Run'
+      q:
+        create: 'Filter'
   routes:
     administrador-engine: backend
+  views:
+    pagination:
+      first: "<<"
+      next: ">"
+      last: ">>"
+      previous: "<"
