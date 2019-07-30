@@ -1,13 +1,53 @@
 module Administrador
+  # A registered engine represents a rails engine that is registered to
+  # administrador.
+  #
+  # You can register an engine as follows:
+  #
+  #     # blorgh/app/config/initializers/administrador.rb
+  #     Administrador.configure { |c| c.register_engine(Blorgh::Engine', {}) }
+  #
+  # The register_engine methods accepts an option hash. Available options are:
+  #
+  #   * show_in_engine_sidebar:
+  #       default: true
+  #       Controls wether the engine will be shown in the main menu (engine sidebar) or not.
+  #
+  # A special case is when you want to register your rails application into
+  # administrador. You can do that like this:
+  #
+  #    # app/config/initializers/main_app.rb
+  #    require 'example_app/configuration'
+  #    Administrador.configure { |c| c.register_engine('ExampleApp::Application', {}) }
+  #
+  # You will need to add a confifguration module:
+  #
+  #    # lib/example_app/configuration.rb
+  #    module ExampleApp
+  #      module Configuration
+  #        # mattr_accessor(:resources_controllers) { ->{[]} }
+  #        # mattr_accessor(:resource_controllers)  { ->{[]} }
+  #        # mattr_accessor(:service_controllers)   { ->{[]} }
+  #        # mattr_accessor(:sidebar_controllers)   { ->{[]} }
+  #      end
+  #    end
+  #
   class RegisteredEngine
     attr_accessor :options, :name
 
     def initialize(name, options)
+      options.reverse_merge!(
+        show_in_engine_sidebar: true
+      )
       @name, @options = name, options
     end
 
     def engine
       @name.constantize
+    end
+
+    def main_app?
+      engine.ancestors.include?(::Rails::Application)
     end
 
     def to_key
@@ -23,7 +63,11 @@ module Administrador
     end
 
     def router_name
-      @name.deconstantize.underscore.gsub('/', '_')
+      if main_app?
+        :main_app
+      else
+        @name.deconstantize.underscore.gsub('/', '_')
+      end
     end
 
     def configuration

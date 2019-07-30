@@ -3,6 +3,7 @@
     .row
       .col-12
         - administrador_helper(self).engines.each do |_, engine|
+          - next unless engine.options[:show_in_engine_sidebar]
           .administrador-engine.mb-4.text-secondary{ id: dom_id(engine), class: dom_class(engine) }
             %h6.text-uppercase.administrador-engine-name
               %i.fas.fa-home
