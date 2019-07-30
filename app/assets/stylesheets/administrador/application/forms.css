@@ -1,3 +1,5 @@
 body.administrador textarea {
   height: 40vh;
+  font-family: monospace;
+  font-size: 120%;
 }
