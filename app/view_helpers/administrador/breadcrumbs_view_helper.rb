@@ -32,7 +32,9 @@ module Administrador
 
         if c.respond_to?(:engine_class, true) && c.engine_class.present?
           engine = Administrador::Configuration.engines[c.engine_class.name]
-          breadcrumbs << { label: t("classes.#{engine.engine.name.underscore}"), url: c.send(engine.router_name).root_path, link_html_options: {}, li_html_options: {} }
+          if engine.present?
+            breadcrumbs << { label: t("classes.#{engine.engine.name.underscore}"), url: c.send(engine.router_name).root_path, link_html_options: {}, li_html_options: {} }
+          end
         end
 
         # if c.respond_to?(:resource_class, true) && c.respond_to?(:available_rest_actions) && c.available_rest_actions.include?(:index)
