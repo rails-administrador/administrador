@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "coffee-rails"
   s.add_dependency "haml-rails"
   s.add_dependency "rao-query",                ">= 0.0.23.pre"
-  s.add_dependency "rao-component",            ">= 0.0.30.pre"
+  s.add_dependency "rao-component",            ">= 0.0.31.pre"
   s.add_dependency "rao-resource_controller",  ">= 0.0.23.pre"
   s.add_dependency "rao-resources_controller", ">= 0.0.23.pre"
   s.add_dependency "rao-service_controller",   ">= 0.0.23.pre"
