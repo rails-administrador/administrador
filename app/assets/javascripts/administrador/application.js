@@ -10,9 +10,4 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
-//= require rao-component/acts_as_list
-//= require rao-component/awesome_nested_set
-//= require simple_sidebar
 //= require_tree ./application
