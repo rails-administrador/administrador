@@ -10,7 +10,7 @@ PATH
       rao-component (>= 0.0.43.pre)
       rao-query (>= 0.0.33.pre)
       rao-resource_controller (>= 0.0.23.pre)
-      rao-resources_controller (>= 0.0.23.pre)
+      rao-resources_controller (>= 0.0.43.pre)
       rao-service_controller (>= 0.0.23.pre)
       rao-view_helper (>= 0.0.23.pre)
       route_translator
