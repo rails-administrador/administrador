@@ -1,3 +1,3 @@
 module Administrador
-  VERSION = '0.0.22.pre'.freeze
+  VERSION = '0.0.23.pre'.freeze
 end
