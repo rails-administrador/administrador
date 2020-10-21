@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrador (0.0.26.pre)
+    administrador (0.0.27.pre)
       bootstrap4-kaminari-views
       coffee-rails
       haml-rails
@@ -237,13 +237,13 @@ GEM
       rails (>= 4.2.0)
       rao
       responders
-    rao-service_controller (0.0.45.pre)
+    rao-service_controller (0.0.46.pre)
       font-awesome-rails
       rails (>= 3.2.0)
       rao
       simple_form
       twitter-bootstrap-components-rails
-    rao-view_helper (0.0.45.pre)
+    rao-view_helper (0.0.46.pre)
       rails (>= 3.2.0)
       rao
     rb-fsevent (0.10.3)
