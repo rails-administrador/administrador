@@ -1,0 +1,4 @@
+= simple_form_for(@service) do |f|
+  = f.input :theme, collection: @service.available_themes
+
+  = f.submit

@@ -5,7 +5,7 @@ module Administrador
   # You can register an engine as follows:
   #
   #     # blorgh/app/config/initializers/administrador.rb
-  #     Administrador.configure { |c| c.register_engine(Blorgh::Engine', {}) }
+  #     Administrador.configure { |c| c.register_engine('Blorgh::Engine', {}) }
   #
   # The register_engine methods accepts an option hash. Available options are:
   #

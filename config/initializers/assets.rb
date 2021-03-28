@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( administrador.js administrador.css )
+Rails.application.config.assets.precompile += %w( administrador.js administrador.css administrador/themes/dark.css )

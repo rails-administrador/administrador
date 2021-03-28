@@ -8,6 +8,12 @@ module Administrador
     mattr_accessor(:features) { {} }
     mattr_accessor(:resource_label_methods) { [:human, :name, :email, :to_s] }
     mattr_accessor(:base_controller_class_name) { '::ApplicationController' }
+    mattr_accessor(:default_theme) { :light }
+    mattr_accessor(:sidebar_controllers) {
+      -> {[
+        Administrador::SettingsSidebarsController
+      ]}
+    }
 
     def register_engine(name, options = {})
       @@engines[name] = Administrador::RegisteredEngine.new(name, options)
@@ -19,6 +25,10 @@ module Administrador
 
     def features?(name)
       @@features.has_key?(name)
+    end
+
+    def theme
+      @@default_theme
     end
   end
 end
