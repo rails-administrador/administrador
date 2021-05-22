@@ -2,8 +2,17 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+#main-content {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
 #main-container {
   padding-top: 1rem;
+}
+
+#main-navbar {
+  /* height: 4rem; */
 }
 
 #main-navbar-tools .navbar-nav {
@@ -13,4 +22,18 @@ body {
 
 #main-navbar-tools .navbar-nav li {
   margin-left: 0.75rem;
+}
+
+#page-footer {
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.collection-table {
+  white-space: nowrap;
+}
+.collection-table td:last-child {
+  width: 100%;
 }

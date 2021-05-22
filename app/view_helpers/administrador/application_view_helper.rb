@@ -30,7 +30,7 @@ module Administrador
     end
 
     def body_html
-      css_classes = ['administrador', c.controller.class.name.underscore.gsub('/', '-').chomp('_controller'), c.action_name].compact.join(' ')
+      css_classes = ['administrador', 'd-flex flex-column h-100', c.controller.class.name.underscore.gsub('/', '-').chomp('_controller'), c.action_name].compact.join(' ')
       { class: css_classes }
     end
 
