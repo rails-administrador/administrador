@@ -10,9 +10,9 @@ module Administrador
       if identifier.start_with?('.')
         prefix = self.class.name.underscore
         caller_method = caller[0].split(' ').last.gsub("'", '')
-        I18n.t("#{prefix}.#{caller_method}.#{identifier}", options)
+        I18n.t("#{prefix}.#{caller_method}.#{identifier}", *options)
       else
-        I18n.t(identifier, options)
+        I18n.t(identifier, *options)
       end
     end
 
