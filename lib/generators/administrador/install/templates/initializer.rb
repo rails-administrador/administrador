@@ -12,6 +12,12 @@ Administrador.configure do |config|
   #
   config.base_controller_class_name = '::ApplicationController'
 
+  # Initial state of the engine sidebar. Can be :open or :closed.
+  #
+  # Default: config.initial_engine_sidebar_state = :closed
+  #
+  config.initial_engine_sidebar_state = :closed
+
   # Enable additional features here.
   #
   # config.enable_feature(:kaminari, {})
