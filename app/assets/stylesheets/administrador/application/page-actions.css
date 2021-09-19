@@ -1,12 +1,14 @@
-.edit-actions .btn, .show-actions .btn, .index-actions .btn, .new-actions .btn, .create-actions .btn {
-  margin-left: 0.5rem;
-}
-
 .edit-actions,
 .show-actions,
 .index-actions,
 .new-actions,
 .create-actions {
-  position: fixed;
-  bottom: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
+
+.edit-actions .btn, 
+.show-actions .btn,
+.index-actions .btn,
+.new-actions .btn,
+.create-actions .btn {}
