@@ -26,5 +26,5 @@ Administrador.configure do |config|
   # Engines that are registered will be shown in the administrador main menu
   # sidebar. Additionally they can register sidebars.
   #
-  # config.register_engine 'Ecm::Blog::Backend::Engine', {}
+  # config.register_engine 'Cmor::Blog::Backend::Engine', {}
 end
