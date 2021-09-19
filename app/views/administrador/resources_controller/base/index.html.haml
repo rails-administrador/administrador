@@ -12,6 +12,11 @@
   .col-12
     .before-index-table= render partial: 'before_index_table', locals: { collection: @collection }
 
+- if Administrador.features?(:kaminari) && @collection.respond_to?(:total_pages)
+  .row
+    .col-12
+      = render partial: 'pagination', locals: { collection: @collection }
+
 .row
   .col-12
     = collection_table(collection: @collection, resource_class: resource_class, table_html: "collection-table table table-responsive #{resource_class.name.underscore.pluralize.gsub('/', '-')} table-xs") do |table|
@@ -21,8 +26,7 @@
 - if Administrador.features?(:kaminari) && @collection.respond_to?(:total_pages)
   .row
     .col-12.d-flex
-      .mx-auto
-        = render partial: 'pagination', locals: { collection: @collection }
+      = render partial: 'pagination', locals: { collection: @collection }
 
 .row
   .col-12

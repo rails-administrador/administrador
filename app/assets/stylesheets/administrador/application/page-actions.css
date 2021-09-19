@@ -3,8 +3,7 @@
 .index-actions,
 .new-actions,
 .create-actions {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 .edit-actions .btn, 

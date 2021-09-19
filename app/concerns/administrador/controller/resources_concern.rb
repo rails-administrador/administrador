@@ -22,6 +22,10 @@ module Administrador
         with_conditions_from_query(super)
       end if Administrador.features?(:rao_query)
 
+      def per_page_default
+        Administrador::Configuration.features[:kaminari].options[:per_page_default] || super
+      end if Administrador.features?(:kaminari)
+
 
       module ResourcesCountConcern
         extend ActiveSupport::Concern

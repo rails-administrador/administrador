@@ -20,7 +20,7 @@ Administrador.configure do |config|
 
   # Enable additional features here.
   #
-  # config.enable_feature(:kaminari, {})
+  # config.enable_feature(:kaminari, { per_page_default: 10 })
   # config.enable_feature(:rao_query, {})
 
   # Engines that are registered will be shown in the administrador main menu
