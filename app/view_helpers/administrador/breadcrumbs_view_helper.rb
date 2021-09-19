@@ -12,7 +12,7 @@ module Administrador
         caller_method = caller[0].split(' ').last.gsub("'", '')
         I18n.t("#{prefix}.#{caller_method}.#{identifier}", *options)
       else
-        I18n.t(identifier, *options)
+        I18n.t(identifier, **options)
       end
     end
 
