@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "route_translator"
   s.add_dependency "simple_form"
   s.add_dependency "simple_form-datetimepicker", ">= 0.0.1"
-  s.add_dependency "simple_sidebar", ">= 0.0.5.pre"
+  s.add_dependency "simple_sidebar", ">= 0.0.6.pre"
   s.add_dependency "bootstrap4-kaminari-views"
   s.add_dependency "rails-i18n"
 

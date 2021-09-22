@@ -16,7 +16,7 @@ PATH
       route_translator
       simple_form
       simple_form-datetimepicker (>= 0.0.1)
-      simple_sidebar (>= 0.0.5.pre)
+      simple_sidebar (>= 0.0.6.pre)
 
 GEM
   remote: https://rubygems.org/
@@ -311,7 +311,7 @@ GEM
       coffee-rails
       momentjs-rails
       rails (>= 5.0.0)
-    simple_sidebar (0.0.5.pre)
+    simple_sidebar (0.0.6.pre)
       coffee-rails
       rails (>= 5.0.0)
       rao-view_helper (>= 0.0.17.pre)
