@@ -5,3 +5,4 @@
   - url = sc.sidebar_url || send(engine.router_name).send("#{sc.name.demodulize.underscore.gsub('_controller', '').singularize}_path")
   - mode = sc.sidebar_mode || :modal
   %aside.py-2{ id: id, data: { sidebar: { position: position, size: size, state: :closed, mode: :modal, load: url } } }
+  
