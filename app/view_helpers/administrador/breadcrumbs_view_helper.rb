@@ -31,9 +31,9 @@ module Administrador
         breadcrumbs << { label: t('.home'), url: c.administrador.root_path, link_html_options: {}, li_html_options: {}}
 
         if c.respond_to?(:engine_class, true) && c.engine_class.present?
-          engine = Administrador::Configuration.engines[c.engine_class.name]
-          if engine.present?
-            breadcrumbs << { label: t("classes.#{engine.engine.name.underscore}"), url: c.send(engine.router_name).root_path, link_html_options: {}, li_html_options: {} }
+          registered_engine = Administrador::RegisteredEngine.find_by_class(c.engine_class)
+          if registered_engine.present?
+            breadcrumbs << { label: t("classes.#{registered_engine.engine_class.name.underscore}"), url: c.send(registered_engine.router_name).root_path, link_html_options: {}, li_html_options: {} }
           end
         end
 

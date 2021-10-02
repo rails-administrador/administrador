@@ -4,7 +4,7 @@ RSpec.describe '/en/backend', type: :feature do
   include ActionView::RecordIdentifier
 
   let(:administrador_root_path) { '/en/backend' }
-  let(:engine) { Administrador::Configuration.engines['News::Backend::Engine'] }
+  let(:engine) { Administrador::RegisteredEngine.find_by_class_name('News::Backend::Engine') }
   let(:resource_class) { News::Item }
   let(:base_path) { '/news-backend/items' }
   let(:resource) { create(:news_item) }

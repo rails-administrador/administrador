@@ -6,8 +6,8 @@
           %i.fas.fa-bars
   #main-navbar-tools
     %ul.navbar-nav
-      - administrador_helper(self).engines.each do |_, engine|
-        - engine.sidebar_controllers.each do |sc|
+      - administrador_helper(self).registered_engines.each do |registered_engine|
+        - registered_engine.sidebar_controllers.each do |sc|
           %li.nav-item
             %button.btn.btn-circle.btn-lg.btn-light{ data: { sidebar: { trigger: "#sidebar-#{sc.name.underscore.gsub('/', '-')}" } } }
               %i.fas{ class: "fa-#{(sc.icon_name || :'ellipsis-v')}"}

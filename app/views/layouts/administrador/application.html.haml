@@ -18,13 +18,13 @@
     / jQuery redirect JS
     %script{:src => "https://cdn.jsdelivr.net/npm/jquery.redirect@1.1.4/jquery.redirect.min.js"}
 
-    - Administrador::Configuration.engines.each do |engine, options|
-      = "<!-- Javascript for #{engine} -->".html_safe
-      = javascript_include_tag engine.underscore.gsub('/', '_').gsub('_engine', '')
+    - Administrador::RegisteredEngine.all.each do |registered_engine|
+      = "<!-- Javascript for #{registered_engine} -->".html_safe
+      = javascript_include_tag registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', '')
 
-    - Administrador::Configuration.engines.each do |engine, options|
-      = "<!-- CSS for #{engine} -->".html_safe
-      = stylesheet_link_tag engine.underscore.gsub('/', '_').gsub('_engine', ''), media: "all"
+    - Administrador::RegisteredEngine.all.each do |registered_engine|
+      = "<!-- CSS for #{registered_engine} -->".html_safe
+      = stylesheet_link_tag registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', ''), media: "all"
 
     %title Administrador
     
