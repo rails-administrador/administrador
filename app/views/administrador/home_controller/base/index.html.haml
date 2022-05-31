@@ -1,4 +1,4 @@
-- current_registered_engine = Administrador::RegisteredEngine.find_by_class(engine_class)
+- current_registered_engine = Administrador::RegisteredEngine.find_by_class!(engine_class)
 = administrador_helper(self).render_registered_engine_widget(current_registered_engine)
 
 = render partial: 'index_extras'

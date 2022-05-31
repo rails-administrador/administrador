@@ -53,6 +53,12 @@ module Administrador
       @store.find { |re| re.engine_class == klass }
     end
 
+    def self.find_by_class!(klass)
+      engine = @store.find { |re| re.engine_class == klass }
+      raise "Could not find engine #{klass}" if engine.nil?
+      engine
+    end
+
     def self.find_by_class_name(class_name)
       @store.find { |re| re.engine_class.name == class_name }
     end
