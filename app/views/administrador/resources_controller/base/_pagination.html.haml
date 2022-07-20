@@ -5,4 +5,4 @@
 
   .d-flex.align-items-center
     %select.pagination-size{ 'data-select-pagination-size': true }
-      = options_for_select({ '1': 1, '5': 5, '10': 10, '15': 15, '20': 20, '50': 50, '100': 100, t('views.pagination_size.all') => 'all' }, params[:per_page] || controller.per_page_default)
+      = options_for_select({ '1': 1, '5': 5, '10': 10, '15': 15, '20': 20, '50': 50, '100': 100, t('views.pagination_size.all') => 'all' }, per_page)
