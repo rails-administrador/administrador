@@ -15,9 +15,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.required_ruby_version = '>= 2.4.4'
+  s.required_ruby_version = '>= 2.6.6'
 
-  s.add_dependency "rails", ">= 5.2.0"
+  s.add_dependency "rails", ">= 6.1"
   s.add_dependency "coffee-rails"
   s.add_dependency "haml-rails"
   s.add_dependency "rao-query",                ">= 0.0.33.pre"
@@ -25,15 +25,15 @@ Gem::Specification.new do |s|
   s.add_dependency "rao-resource_controller",  ">= 0.0.23.pre"
   s.add_dependency "rao-resources_controller", ">= 0.0.47.pre"
   s.add_dependency "rao-service_controller",   ">= 0.0.47.pre"
-  s.add_dependency "rao-view_helper",          ">= 0.0.23.pre"
+  s.add_dependency "rao-view_helper",          ">= 0.0.48.pre"
   s.add_dependency "route_translator"
   s.add_dependency "simple_form"
   s.add_dependency "simple_form-datetimepicker", ">= 0.0.1"
-  s.add_dependency "simple_sidebar", ">= 0.0.4.pre"
+  s.add_dependency "simple_sidebar", ">= 0.0.6.pre"
   s.add_dependency "bootstrap4-kaminari-views"
   s.add_dependency "rails-i18n"
 
-  s.add_development_dependency "sqlite3", "~> 1.3.6"
+  s.add_development_dependency "sqlite3", "~> 1.4"
   s.add_development_dependency "capybara-screenshot"
   s.add_development_dependency "capybara"
   s.add_development_dependency "factory_bot_rails"

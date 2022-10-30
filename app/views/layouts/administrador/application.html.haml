@@ -1,5 +1,5 @@
 !!!
-%html{:lang => I18n.locale }
+%html{ lang: I18n.locale, class: "h-100" }
   %head
     / Required meta tags
     %meta{:charset => "utf-8"}/
@@ -8,8 +8,9 @@
     %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css", :integrity => "sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS", :rel => "stylesheet"}/
     / Font Awesome CSS
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
-    / Fonts
+    / Fonts CSS
     %link{:href => "https://fonts.googleapis.com/css?family=Poppins", :rel => "stylesheet"}/
+
     / jQuery JS
     %script{:crossorigin => "anonymous", :integrity => "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", :src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
     / jQuery UI JS
@@ -17,13 +18,13 @@
     / jQuery redirect JS
     %script{:src => "https://cdn.jsdelivr.net/npm/jquery.redirect@1.1.4/jquery.redirect.min.js"}
 
-    - Administrador::Configuration.engines.each do |engine, options|
-      = "<!-- Javascript for #{engine} -->".html_safe
-      = javascript_include_tag engine.underscore.gsub('/', '_').gsub('_engine', '')
+    - Administrador::RegisteredEngine.all.each do |registered_engine|
+      = "<!-- Javascript for #{registered_engine} -->".html_safe
+      = javascript_include_tag registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', '')
 
-    - Administrador::Configuration.engines.each do |engine, options|
-      = "<!-- CSS for #{engine} -->".html_safe
-      = stylesheet_link_tag engine.underscore.gsub('/', '_').gsub('_engine', ''), media: "all"
+    - Administrador::RegisteredEngine.all.each do |registered_engine|
+      = "<!-- CSS for #{registered_engine} -->".html_safe
+      = stylesheet_link_tag registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', ''), media: "all"
 
     %title Administrador
     
@@ -34,22 +35,34 @@
 
     = render partial: 'html_head_extras'
   %body{ administrador_helper(self).body_html }
-    #main-content
+    %main
+      #main-navbar
+        = render '/administrador/application/navbar'
+      #main-content
+        .container-fluid
+          .row
+            .col-12.px-0
+              #main-breadcrumbs.container-fluid
+                .row
+                  .col-12
+                    = breadcrumbs(self).render
+              #main-container.container-fluid
+                .row
+                  .col-12
+                    #flash-messages
+                      = administrador_helper(self).flash_messages
+                    = yield
+
+    %footer#page-footer.mt-auto.bg-dark.text-white.py-3
       .container-fluid
         .row
-          .col-12.px-0
-            #main-navbar.mb-4
-              = render '/administrador/application/navbar'
-            #main-breadcrumbs.container-fluid
-              .row
-                .col-12
-                  = breadcrumbs(self).render
-            #main-container.container-fluid
-              .row
-                .col-12
-                  #flash-messages
-                    = administrador_helper(self).flash_messages
-                  = yield
+          .col-12.d-flex
+            .ml-auto
+              .small
+                Administrador
+                = Administrador::VERSION
+                by
+                = link_to("BeeGood IT", "https://www.beegoodit.de/", target: "_blank")
 
     = render "/administrador/application/sidebars/engine"
 

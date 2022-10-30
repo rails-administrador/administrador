@@ -4,7 +4,7 @@ RSpec.describe '/en/backend', type: :feature do
   include ActionView::RecordIdentifier
 
   let(:base_path) { '/en/backend' }
-  let(:engine) { Administrador::Configuration.engines['Blorgh::Engine'] }
+  let(:engine) { Administrador::RegisteredEngine.find_by_class_name('Blorgh::Engine') }
 
   describe 'engine in sidebar' do
     before(:each) { visit(base_path) }

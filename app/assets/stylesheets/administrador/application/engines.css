@@ -1,0 +1,36 @@
+#sidebar-engines .administrador-engine-actions {
+  width: 1rem;
+  min-height: 1px;
+  margin-right: 1rem;
+}
+
+#sidebar-engines .administrador-engine-resources-count, .registered-engine-widget .administrador-engine-resources-count {
+  width: 1rem;
+}
+
+#sidebar-engines .administrador-engine a {
+  color: grey;
+}
+
+#sidebar-engines .administrador-engine .badge-pill, .registered-engine-widget .badge-pill {
+  min-width: 1.75rem;
+}
+
+#sidebar-engines .administrador-engine-actions, .registered-engine-widget .administrador-engine-actions {
+  /* width: 2.5rem; */
+  min-height: 1px;
+  margin-right: 0.5rem;
+}
+
+
+.administrador-engine-actions, .administrador-engine-resources-count {
+  display: inline-block;
+}
+
+.administrador-engine-resources-count {
+  margin-right: 0.5rem;
+}
+
+.registered-engine-widget .badge-pill {
+  min-width: 2.3rem;
+}

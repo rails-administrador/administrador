@@ -1,7 +1,7 @@
 module Administrador
   class ApplicationViewHelper < Rao::ViewHelper::Base
-    def engines
-      Administrador::Configuration.engines
+    def registered_engines
+      Administrador::RegisteredEngine.all
     end
 
     def filter_attributes_for_form(attribute_names)
@@ -24,14 +24,18 @@ module Administrador
     end
 
     def render_engine_sidebars
-      engines.collect do |_, engine|
-        c.render partial: 'administrador/application_view_helper/render_engine_sidebars', locals: { engine: engine }
+      registered_engines.collect do |registered_engine|
+        c.render partial: 'administrador/application_view_helper/render_engine_sidebars', locals: { engine: registered_engine }
       end.join.html_safe
     end
 
     def body_html
-      css_classes = ['administrador', c.controller.class.name.underscore.gsub('/', '-').chomp('_controller'), c.action_name].compact.join(' ')
+      css_classes = ['administrador', 'd-flex flex-column h-100', c.controller.class.name.underscore.gsub('/', '-').chomp('_controller'), c.action_name].compact.join(' ')
       { class: css_classes }
+    end
+
+    def render_registered_engine_widget(registered_engine)
+      render registered_engine: registered_engine
     end
 
     private

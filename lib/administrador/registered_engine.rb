@@ -20,7 +20,7 @@ module Administrador
   #    require 'example_app/configuration'
   #    Administrador.configure { |c| c.register_engine('ExampleApp::Application', {}) }
   #
-  # You will need to add a confifguration module:
+  # You will need to add a configuration module:
   #
   #    # lib/example_app/configuration.rb
   #    module ExampleApp
@@ -35,19 +35,50 @@ module Administrador
   class RegisteredEngine
     attr_accessor :options, :name
 
-    def initialize(name, options)
+    @store = []
+
+    def self.create(attributes = {})
+      @store << new(attributes)
+    end
+
+    def self.all
+      @store
+    end
+
+    def self.find_by_name(name)
+      @store.find { |re| re[:name] == name }
+    end
+
+    def self.find_by_class(klass)
+      @store.find { |re| re.engine_class == klass }
+    end
+
+    def self.find_by_class!(klass)
+      engine = @store.find { |re| re.engine_class == klass }
+      raise "Could not find engine #{klass}" if engine.nil?
+      engine
+    end
+
+    def self.find_by_class_name(class_name)
+      @store.find { |re| re.engine_class.name == class_name }
+    end
+
+    def initialize(attributes = {})
+      options = attributes.delete(:options)
       options.reverse_merge!(
         show_in_engine_sidebar: true
       )
-      @name, @options = name, options
+      attributes.merge(options: options).each do |key, value|
+        send("#{key}=", value)
+      end
     end
 
-    def engine
+    def engine_class
       @name.constantize
     end
 
     def main_app?
-      engine.ancestors.include?(::Rails::Application)
+      engine_class.ancestors.include?(::Rails::Application)
     end
 
     def to_key
@@ -59,7 +90,7 @@ module Administrador
     end
 
     def translated_name
-      I18n.t("classes.#{engine.name.underscore}")
+      I18n.t("classes.#{engine_class.name.underscore}")
     end
 
     def router_name
@@ -80,7 +111,7 @@ module Administrador
       elsif configuration.respond_to?(:resources_controllers)
         configuration.resources_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :resources_controllers.")
+        Rails.logger.warn("Administrador: The namespace #{engine_class.name.deconstantize} either does not define a Configuration class or the class #{engine_class.name.deconstantize}::Configuration does not respond_to :resources_controllers.")
         []
       end
     end
@@ -89,7 +120,7 @@ module Administrador
       if configuration.respond_to?(:resource_controllers)
         configuration.resource_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :resource_controllers.")
+        Rails.logger.warn("Administrador: The namespace #{engine_class.name.deconstantize} either does not define a Configuration class or the class #{engine_class.name.deconstantize}::Configuration does not respond_to :resource_controllers.")
         []
       end
     end
@@ -100,7 +131,7 @@ module Administrador
       elsif configuration.respond_to?(:service_controllers)
         configuration.service_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :service_controllers.")
+        Rails.logger.warn("Administrador: The namespace #{engine_class.name.deconstantize} either does not define a Configuration class or the class #{engine_class.name.deconstantize}::Configuration does not respond_to :service_controllers.")
         []
       end
     end
@@ -109,7 +140,7 @@ module Administrador
       if configuration.respond_to?(:sidebar_controllers)
         configuration.sidebar_controllers.call
       else
-        Rails.logger.warn("Administrador: The namespace #{engine.name.deconstantize} either does not define a Configuration class or the class #{engine.name.deconstantize}::Configuration does not respond_to :sidebar_controllers.")
+        Rails.logger.warn("Administrador: The namespace #{engine_class.name.deconstantize} either does not define a Configuration class or the class #{engine_class.name.deconstantize}::Configuration does not respond_to :sidebar_controllers.")
         []
       end
     end

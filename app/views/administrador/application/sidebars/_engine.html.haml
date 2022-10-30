@@ -1,34 +1,39 @@
-%aside#sidebar-engines.p-2.pr-0{ data: { sidebar: { position: :left, size: '20rem', state: :closed, mode: :push } } }
+%aside#sidebar-engines.p-2.pr-0{ data: { sidebar: { position: :left, size: '20rem', state: initial_engine_sidebar_state, mode: :push } } }
   .container-fluid
     .row
       .col-12
-        - administrador_helper(self).engines.each do |_, engine|
+        - administrador_helper(self).registered_engines.each_with_index do |(engine), index|
           - next unless engine.options[:show_in_engine_sidebar]
           .administrador-engine.mb-4.text-secondary{ id: dom_id(engine), class: dom_class(engine) }
-            %h6.text-uppercase.administrador-engine-name
-              %i.fas.fa-home
+            %h6.administrador-engine-name.d-flex.text-uppercase
+              %i.fas.fa-home.mr-1
               = link_to(send(engine.router_name).root_path, class: 'administrador-link-to-engine-home') do
                 = engine.translated_name
-            %ul.list-group.list-group-flush
-              - engine.resources_controllers.each do |rc|
-                %li.list-group-item
-                  .administrador-engine-resources-count.float-right
-                    %span.badge.badge-pill.badge-success= rc.resource_count
-                  .administrador-engine-actions.float-right
-                    - if rc.available_rest_actions.include?(:new)
-                      %a.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
-                        %i.fas.fa-plus
-                  %a.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index), class: "#{rc.name.underscore.gsub('_controller', '').split('/').last == controller_name ? 'current selected' : ''}" }
-                    = rc.resource_class.model_name.human(count: :other)
-              - engine.resource_controllers.each do |rc|
-                %li.list-group-item
-                  .administrador-engine-actions.float-right
-                    - if rc.available_rest_actions.include?(:new)
-                      %a.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
-                        %i.fas.fa-plus
-                  %a.administrador-link-to-resource{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :show) }
-                    = rc.resource_class.model_name.human(count: :other)
-              - engine.service_controllers.each do |sc|
-                %li.list-group-item
-                  %a.administrador-link-to-service{ href: send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :new) }
-                    = sc.service_class.model_name.human(count: :other)
+              %span.ml-auto
+                %a{ data: { toggle: "collapse" }, href: "#engine-menu-#{index}", role: 'button', aria: { expanded: "false", controls: "engine-menu-#{index}" } }
+                  %i.fas.fa-chevron-down
+            .engine-menu.collapse{ id: "engine-menu-#{index}", class: (engine.engine_class == controller.engine_class) ? "show" : nil }
+              %span
+              %ul.list-group.list-group-flush
+                - engine.resources_controllers.each do |rc|
+                  %li.list-group-item
+                    .administrador-engine-resources-count.float-right
+                      %span.badge.badge-pill.badge-success= rc.resource_count
+                    .administrador-engine-actions.float-right
+                      - if rc.available_rest_actions.include?(:new)
+                        %a.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                          %i.fas.fa-plus
+                    %a.administrador-link-to-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index), class: "#{rc.name.underscore.gsub('_controller', '').split('/').last == controller_name ? 'current selected' : ''}" }
+                      = rc.resource_class.model_name.human(count: :other)
+                - engine.resource_controllers.each do |rc|
+                  %li.list-group-item
+                    .administrador-engine-actions.float-right
+                      - if rc.available_rest_actions.include?(:new)
+                        %a.administrador-link-to-new-resources{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                          %i.fas.fa-plus
+                    %a.administrador-link-to-resource{ href: send(engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :show) }
+                      = rc.resource_class.model_name.human(count: :other)
+                - engine.service_controllers.each do |sc|
+                  %li.list-group-item
+                    %a.administrador-link-to-service{ href: send(engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :new) }
+                      = sc.service_class.model_name.human(count: :other)

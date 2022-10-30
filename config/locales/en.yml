@@ -75,3 +75,6 @@ en:
       next: ">"
       last: ">>"
       previous: "<"
+      truncate: "…"
+    pagination_size:
+      all: "All"

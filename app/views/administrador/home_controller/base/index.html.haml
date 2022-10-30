@@ -1,5 +1,4 @@
-.row
-  .col-12
-    %h3= t('.title', engine_name: t("classes.#{engine_class.name.underscore}"))
+- current_registered_engine = Administrador::RegisteredEngine.find_by_class!(engine_class)
+= administrador_helper(self).render_registered_engine_widget(current_registered_engine)
 
 = render partial: 'index_extras'

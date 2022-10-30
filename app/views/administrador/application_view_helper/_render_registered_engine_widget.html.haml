@@ -1,0 +1,41 @@
+.registered-engine-widget
+  .row
+    .col-12
+      %h3= t("classes.#{registered_engine.name.underscore}")
+
+  .row.mb-4
+    .col-12
+      %ul.list-group.list-group-flush
+        - registered_engine.resources_controllers.each do |rc|
+          %li.list-group-item.d-flex
+            %a.administrador-link-to-resources{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index), class: "#{rc.name.underscore.gsub('_controller', '').split('/').last == controller_name ? 'current selected' : ''}" }
+              = rc.resource_class.model_name.human(count: :other)
+            .ml-auto
+              .administrador-engine-actions
+                .btn-group
+                  - if rc.available_rest_actions.include?(:new)
+                    %a.btn.btn-xs.btn-success{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                      %i.fas.fa-plus
+                  - if rc.available_rest_actions.include?(:index)
+                    %a.btn.btn-xs.btn-primary{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
+                      %i.fas.fa-eye
+              .administrador-engine-resources-count
+                %span.badge.badge-pill.badge-success= rc.resource_count
+
+        - registered_engine.resource_controllers.each do |rc|
+          %li.list-group-item
+            .administrador-engine-actions.float-right
+              .btn-group
+                - if rc.available_rest_actions.include?(:new)
+                  %a.btn.btn-xs.btn-success{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                    %i.fas.fa-plus
+                - if rc.available_rest_actions.include?(:show)
+                  %a.btn.btn-xs.btn-primary{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :show) }
+                    %i.fas.fa-plus
+            %a.administrador-link-to-resource{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :show) }
+              = rc.resource_class.model_name.human(count: :other)
+
+        - registered_engine.service_controllers.each do |sc|
+          %li.list-group-item
+            %a.administrador-link-to-service{ href: send(registered_engine.router_name).url_for(controller: "/#{sc.name.underscore.gsub('_controller', '')}", action: :new) }
+              = sc.service_class.model_name.human(count: :other)

@@ -2,6 +2,6 @@
   background-color: white;
 }
 .sidebar-left.sidebar-push, .sidebar-right.sidebar-push {
-  margin-top: 4rem;
-  height: calc(100% - 4rem);
+  margin-top: calc(4rem + 2px);
+  height: calc(100% - 7rem - 2px);
 }
