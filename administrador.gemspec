@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "administrador"
   s.version     = Administrador::VERSION
   s.authors     = ["Roberto Vasquez Angel"]
-  s.email       = ["roberto@vasquez-angel.de"]
+  s.email       = ["info@beegoodit.de"]
   s.homepage    = "https://github.com/robotex82/administrador"
   s.summary     = "Administrador - The rails administration interface."
   s.license     = "MIT"

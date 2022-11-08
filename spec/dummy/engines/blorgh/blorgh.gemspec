@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "blorgh"
   s.version     = '0.0.1'
   s.authors     = ["Roberto Vasquez Angel"]
-  s.email       = ["roberto@vasquez-angel.de"]
+  s.email       = ["info@beegoodit.de"]
   s.homepage    = "https://github.com/robotex82/administrador"
   s.summary     = "Blorgh."
   s.license     = "MIT"
