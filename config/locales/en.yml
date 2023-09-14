@@ -42,6 +42,8 @@ en:
       base:
         create:
           title: "Ran %{service_name}"
+        create_actions:
+          back: "Zurück"
         new:
           title: "Run %{service_name}"
         new_actions:

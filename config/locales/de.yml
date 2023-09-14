@@ -42,6 +42,8 @@ de:
       base:
         create:
           title: "%{service_name} ausgeführt"
+        create_actions:
+          back: "Zurück"
         new:
           title: "%{service_name} ausführen"
         new_actions:
