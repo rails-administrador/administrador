@@ -3,7 +3,7 @@
     .row
       .col-12
         - administrador_helper(self).registered_engines.each_with_index do |(engine), index|
-          - next unless engine.options[:show_in_engine_sidebar]
+          - next unless engine.options[:show].respond_to?(:call) ? instance_exec(&engine.options[:show]) : engine.options[:show]
           .administrador-engine.mb-4.text-secondary{ id: dom_id(engine), class: dom_class(engine) }
             %h6.administrador-engine-name.d-flex.text-uppercase
               %i.fas.fa-home.mr-1

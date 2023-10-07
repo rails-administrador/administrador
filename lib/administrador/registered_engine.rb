@@ -66,7 +66,7 @@ module Administrador
     def initialize(attributes = {})
       options = attributes.delete(:options)
       options.reverse_merge!(
-        show_in_engine_sidebar: true
+        show: true
       )
       attributes.merge(options: options).each do |key, value|
         send("#{key}=", value)

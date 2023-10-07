@@ -1,0 +1,5 @@
+.row
+  - administrador_helper(self).registered_engines.each do |engine|
+    - next unless engine.options[:show].respond_to?(:call) ? instance_exec(&engine.options[:show]) : engine.options[:show]
+    .col-lg-6.col-xl-4
+      = administrador_helper(self).render_registered_engine_widget(engine)
