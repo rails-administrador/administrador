@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrador (0.0.31.pre)
+    administrador (0.0.32.pre)
       bootstrap4-kaminari-views
       coffee-rails
       haml-rails
@@ -120,7 +120,7 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.12.0)
-    execjs (2.9.0)
+    execjs (2.9.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -150,7 +150,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (6.1.2)
+    haml (6.2.3)
       temple (>= 0.8.2)
       thor
       tilt
@@ -286,9 +286,9 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    route_translator (14.0.1)
-      actionpack (>= 6.1, < 7.1)
-      activesupport (>= 6.1, < 7.1)
+    route_translator (14.1.0)
+      actionpack (>= 6.1, < 7.2)
+      activesupport (>= 6.1, < 7.2)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -338,9 +338,9 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3)
       mini_portile2 (~> 2.8.0)
-    temple (0.10.2)
+    temple (0.10.3)
     thor (1.2.2)
-    tilt (2.2.0)
+    tilt (2.3.0)
     timeout (0.4.0)
     twitter-bootstrap-components-rails (1.0.0)
       haml-rails
