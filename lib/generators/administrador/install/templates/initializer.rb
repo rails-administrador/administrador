@@ -8,9 +8,9 @@ Administrador.configure do |config|
   # All controllers (for resources, services, sidebars, home, etc.) inherit
   # from this controller.
   #
-  # Default: config.base_controller_class_name = '::ApplicationController'
+  # Default: config.base_controller_class_name = "::ApplicationController"
   #
-  config.base_controller_class_name = '::ApplicationController'
+  config.base_controller_class_name = "::ApplicationController"
 
   # Initial state of the engine sidebar. Can be :open or :closed.
   #
@@ -20,11 +20,11 @@ Administrador.configure do |config|
 
   # Enable additional features here.
   #
-  # config.enable_feature(:kaminari, { per_page_default: 10 })
+  # config.enable_feature(:kaminari, {per_page_default: 10})
   # config.enable_feature(:rao_query, {})
 
   # Engines that are registered will be shown in the administrador main menu
   # sidebar. Additionally they can register sidebars.
   #
-  # config.register_engine 'Cmor::Blog::Backend::Engine', {}
+  # config.register_engine("Cmor::Blog::Backend::Engine", {})
 end
