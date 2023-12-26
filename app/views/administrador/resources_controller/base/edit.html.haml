@@ -4,7 +4,7 @@
     
 .row
   .col-12
-    = simple_form_for([resource_namespace, @resource]) do |form|
+    = simple_form_for(@resource, url: resource_path(@resource)) do |form|
       = render partial: 'form_errors', locals: { resource: form.object }
       = render 'form', form: form
       = render 'form_buttons', form: form

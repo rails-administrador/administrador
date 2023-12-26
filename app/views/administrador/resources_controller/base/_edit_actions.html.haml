@@ -1,6 +1,6 @@
-= link_to({ action: :index }, class: 'btn btn-light btn-circle btn-lg') do
+= link_to(collection_path, class: 'btn btn-light btn-circle btn-lg') do
   %i.fas.fa-arrow-left
 
 .ml-auto
-  = link_to([resource_namespace, resource], class: 'btn btn-success btn-circle btn-lg') do
+  = link_to(resource_path(resource), class: 'btn btn-success btn-circle btn-lg') do
     %i.fas.fa-eye
