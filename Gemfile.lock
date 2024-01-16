@@ -17,6 +17,7 @@ PATH
       simple_form
       simple_form-datetimepicker (>= 0.0.1)
       simple_sidebar (>= 0.0.6.pre)
+      turbo-rails
 
 GEM
   remote: https://rubygems.org/
@@ -342,6 +343,10 @@ GEM
     thor (1.2.2)
     tilt (2.3.0)
     timeout (0.4.0)
+    turbo-rails (1.5.0)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     twitter-bootstrap-components-rails (1.0.0)
       haml-rails
       rails (>= 3.2)

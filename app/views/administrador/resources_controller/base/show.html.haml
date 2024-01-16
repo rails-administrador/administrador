@@ -7,8 +7,9 @@
     .before-show-table= render partial: 'before_show_table', locals: { resource: @resource }
 .row
   .col-12
-    = resource_table(resource: @resource) do |table|
-      = render 'show_table', table: table
+    = turbo_frame_tag(dom_id(@resource)) do
+      = resource_table(resource: @resource) do |table|
+        = render 'show_table', table: table
 
 .row
   .col-12

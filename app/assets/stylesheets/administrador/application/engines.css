@@ -4,7 +4,7 @@
   margin-right: 1rem;
 }
 
-#sidebar-engines .administrador-engine-resources-count, .registered-engine-widget .administrador-engine-resources-count {
+#sidebar-engines .administrador-engine-resources-count, .registered-engine .administrador-engine-resources-count {
   width: 1rem;
 }
 
@@ -12,11 +12,11 @@
   color: grey;
 }
 
-#sidebar-engines .administrador-engine .badge-pill, .registered-engine-widget .badge-pill {
+#sidebar-engines .administrador-engine .badge-pill, .registered-engine .badge-pill {
   min-width: 1.75rem;
 }
 
-#sidebar-engines .administrador-engine-actions, .registered-engine-widget .administrador-engine-actions {
+#sidebar-engines .administrador-engine-actions, .registered-engine .administrador-engine-actions {
   /* width: 2.5rem; */
   min-height: 1px;
   margin-right: 0.5rem;
@@ -31,6 +31,6 @@
   margin-right: 0.5rem;
 }
 
-.registered-engine-widget .badge-pill {
+.registered-engine .badge-pill {
   min-width: 2.3rem;
 }

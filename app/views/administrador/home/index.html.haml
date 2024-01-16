@@ -1,5 +1,13 @@
-.row
+.row.d-flex.align-items-stretch
   - administrador_helper(self).registered_engines.each do |engine|
     - next unless engine.options[:show].respond_to?(:call) ? instance_exec(&engine.options[:show]) : engine.options[:show]
-    .col-lg-6.col-xl-4
-      = administrador_helper(self).render_registered_engine_widget(engine)
+    .col-12.col-lg-6.col-xl-4.mb-4
+      .registered-engine.h-100
+        .card.h-100
+          .card-header
+            %i.fas.fa-home
+            %span.administrador-engine-name.text-uppercase
+              = link_to(send(engine.router_name).root_path, class: 'administrador-link-to-engine-home') do
+                = engine.translated_name
+          .card-body.p-0
+            = administrador_helper(self).render_registered_engine_widget(engine)
