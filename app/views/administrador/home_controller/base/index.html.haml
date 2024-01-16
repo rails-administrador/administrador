@@ -1,4 +1,20 @@
 - current_registered_engine = Administrador::RegisteredEngine.find_by_class!(engine_class)
-= administrador_helper(self).render_registered_engine_widget(current_registered_engine)
+
+.registered-engine
+  .row
+    .col-12
+      %h3= t("classes.#{current_registered_engine.name.underscore}")
+
+  = render partial: "before_index_table"
+
+  .row.mb-4
+    .col-12
+      .card
+        .card-header
+          %i.fas.fa-home
+        .card-body.p-0
+          = administrador_helper(self).render_registered_engine_widget(current_registered_engine)
+
+  = render partial: "after_index_table"
 
 = render partial: 'index_extras'
