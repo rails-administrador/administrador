@@ -1,19 +1,22 @@
 %ul.list-group.list-group-flush
-  - registered_engine.resources_controllers.each do |rc|
-    %li.list-group-item.d-flex
-      %a.administrador-link-to-resources{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index), class: "#{rc.name.underscore.gsub('_controller', '').split('/').last == controller_name ? 'current selected' : ''}" }
-        = rc.resource_class.model_name.human(count: :other)
-      .ml-auto
-        .administrador-engine-actions
-          .btn-group
-            - if rc.available_rest_actions.include?(:new)
-              %a.btn.btn-xs.btn-success{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
-                %i.fas.fa-plus
-            - if rc.available_rest_actions.include?(:index)
-              %a.btn.btn-xs.btn-primary{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
-                %i.fas.fa-eye
-        .administrador-engine-resources-count
-          %span.badge.badge-pill.badge-success= rc.resource_count
+  - registered_engine.resources_controllers.each do |namespace, resources_controllers|
+    - if registered_engine.name.chomp("::Engine") != namespace
+      %li.list-group-item.bg-light.font-weight-bold= I18n.t(namespace.underscore, scope: 'modules')
+    - resources_controllers.each do |rc|
+      %li.list-group-item.d-flex
+        %a.administrador-link-to-resources{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index), class: "#{rc.name.underscore.gsub('_controller', '').split('/').last == controller_name ? 'current selected' : ''}" }
+          = rc.resource_class.model_name.human(count: :other)
+        .ml-auto
+          .administrador-engine-actions
+            .btn-group
+              - if rc.available_rest_actions.include?(:new)
+                %a.btn.btn-xs.btn-success{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :new) }
+                  %i.fas.fa-plus
+              - if rc.available_rest_actions.include?(:index)
+                %a.btn.btn-xs.btn-primary{ href: send(registered_engine.router_name).url_for(controller: "/#{rc.name.underscore.gsub('_controller', '')}", action: :index) }
+                  %i.fas.fa-eye
+          .administrador-engine-resources-count
+            %span.badge.badge-pill.badge-success= rc.resource_count
 
   - registered_engine.resource_controllers.each do |rc|
     %li.list-group-item

@@ -105,11 +105,23 @@ module Administrador
       "#{@name.deconstantize}::Configuration".constantize
     end
 
-    def resources_controllers
+    def group_by(classes, group_by:)
+      case group_by
+      when :class
+        # group classes by their namespace. Use the namespace as key.
+        classes.group_by { |c| c.name.deconstantize }
+      when nil
+        classes
+      else
+        raise "Unknown group_by option: #{group_by}"
+      end
+    end
+
+    def resources_controllers(group_by: :class)
       if configuration.respond_to?(:registered_controllers)
-        configuration.registered_controllers.call
+        group_by(configuration.registered_controllers.call, group_by: group_by)
       elsif configuration.respond_to?(:resources_controllers)
-        configuration.resources_controllers.call
+        group_by(configuration.resources_controllers.call, group_by: group_by)
       else
         Rails.logger.warn("Administrador: The namespace #{engine_class.name.deconstantize} either does not define a Configuration class or the class #{engine_class.name.deconstantize}::Configuration does not respond_to :resources_controllers.")
         []
