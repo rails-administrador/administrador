@@ -3,9 +3,9 @@ module Administrador
     module ResourceConcern
       extend ActiveSupport::Concern
 
-      include Rao::ResourceController::RestActionsConcern
-      include Rao::ResourceController::ResourceConcern
-      include Rao::ResourceController::RestResourceUrlsConcern
+      include Rao::ResourceController::Singular::RestActionsConcern
+      include Rao::ResourceController::Singular::ResourcesConcern
+      include Rao::ResourceController::Singular::RestResourcesUrlsConcern
       include Rao::ResourceController::ResourceInflectionsConcern
       include Rao::ResourceController::LocationHistoryConcern
 

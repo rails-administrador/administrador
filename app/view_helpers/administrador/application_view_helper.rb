@@ -38,6 +38,31 @@ module Administrador
       render registered_engine: registered_engine
     end
 
+    def include_engine_assets(registered_engine)
+      asset_name = registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', '')
+      output = []
+      
+      # Try to include JavaScript
+      begin
+        js_tag = c.javascript_include_tag(asset_name)
+        output << "<!-- Javascript for #{registered_engine} -->".html_safe
+        output << js_tag
+      rescue => e
+        # Asset not found, skip
+      end
+      
+      # Try to include CSS
+      begin
+        css_tag = c.stylesheet_link_tag(asset_name, media: "all")
+        output << "<!-- CSS for #{registered_engine} -->".html_safe
+        output << css_tag
+      rescue => e
+        # Asset not found, skip
+      end
+      
+      output.join.html_safe
+    end
+
     private
 
     def bootstrapify_flash_keys(flash)
