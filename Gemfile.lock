@@ -517,6 +517,7 @@ DEPENDENCIES
   guard-bundler
   guard-rspec
   importmap-rails
+  kaminari
   launchy
   propshaft
   pry-rails

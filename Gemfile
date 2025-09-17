@@ -35,7 +35,6 @@ end
 gem "importmap-rails"
 gem "turbo-rails"
 
-# Local rao gems
 gem "rao-component", path: "~/projects/gems/rao/rao-component"
 gem "rao-query", path: "~/projects/gems/rao/rao-query"
 gem "rao-resources_controller", path: "~/projects/gems/rao/rao-resources_controller"
@@ -43,4 +42,4 @@ gem "rao-service_controller", path: "~/projects/gems/rao/rao-service_controller"
 gem "rao-view_helper", path: "~/projects/gems/rao/rao-view_helper"
 gem "simple_sidebar", path: "~/projects/gems/simple_sidebar"
 gem "simple_form-datetimepicker", path: "~/projects/gems/simple_form-datetimepicker"
-
+gem "kaminari"

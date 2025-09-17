@@ -1,5 +1,5 @@
 // Import individual components
-import "./pagination_size.js";
+import PaginationSize from "administrador/pagination_size";
 
 class AdministradorApplication {
   constructor() {
@@ -7,6 +7,7 @@ class AdministradorApplication {
   }
   
   initializeComponents() {
+    this.paginationSize = PaginationSize.initialize();
     console.log("Administrador application initialized with modern JavaScript");
   }
   

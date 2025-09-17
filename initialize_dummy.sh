@@ -70,6 +70,12 @@ bin/rails g simple_sidebar:install
 # Install administrador
 bin/rails g administrador:install
 
+# enable kaminari by adding it before end in config/initializers/administador.rb
+sed -i '/^end$/i\  config.enable_feature(:kaminari, {})' config/initializers/administador.rb
+cat >> config/application.rb << 'EOF'
+require 'kaminari'
+EOF
+
 # Setup engines
 echo "Setting up engines..."
 bash ../../setup_engines.sh
