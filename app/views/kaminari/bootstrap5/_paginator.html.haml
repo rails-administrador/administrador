@@ -1,0 +1,13 @@
+-#  Bootstrap 5 Pagination Container
+= paginator.render do
+  %nav{ aria: { label: "Page navigation" } }
+    %ul.pagination.justify-content-center.mb-0
+      = first_page_tag unless current_page.first?
+      = prev_page_tag unless current_page.first?
+      - each_page do |page|
+        - if page.display_tag?
+          = page_tag page
+        - elsif !page.was_truncated?
+          = gap_tag
+      = next_page_tag unless current_page.last?
+      = last_page_tag unless current_page.last?

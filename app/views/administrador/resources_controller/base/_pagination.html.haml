@@ -1,8 +1,8 @@
 .pagination-controls.w-100.d-flex.justify-content-between
   .d-hide
   .d-flex.align-items-center
-    = paginate(collection, theme: 'twitter-bootstrap-4')
+    = paginate(collection, theme: :bootstrap5)
 
   .d-flex.align-items-center
-    %select.pagination-size.custom-select{ 'data-select-pagination-size': true, 'data-current-per-page': per_page, style: "width: auto; display: inline-block;" }
+    %select.pagination-size.form-select{ 'data-select-pagination-size': true, 'data-current-per-page': per_page, style: "width: auto; display: inline-block;" }
       = options_for_select({ '1': 1, '5': 5, '10': 10, '15': 15, '20': 20, '25': 25, '50': 50, '100': 100, t('views.pagination_size.all') => 'all' }, per_page)

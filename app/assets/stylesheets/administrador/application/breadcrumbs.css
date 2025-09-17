@@ -1,13 +1,57 @@
+/* Bootstrap 5 Breadcrumb Container */
 #main-breadcrumbs {
-  background-color: #e2e6ea;
-  /* margin-top: 4rem; */
+  background-color: var(--bs-secondary-bg, #e2e6ea);
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+  padding: 0.75rem 1rem;
 }
 
+/* Reset nested container padding since we handle it at the top level */
+#main-breadcrumbs .container-fluid,
+#main-breadcrumbs .row,
+#main-breadcrumbs .col-12 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Bootstrap 5 Breadcrumb Styling */
 #main-breadcrumbs ol.breadcrumb {
-  background-color: inherit !important;
+  background-color: transparent !important;
   margin-bottom: 0;
-  /*
-  padding-left: 0;
-  padding-right: 0;
-  */
+  padding: 0;
+  font-size: 0.875rem;
+  --bs-breadcrumb-divider: '›';
+  --bs-breadcrumb-divider-color: var(--bs-secondary);
+  --bs-breadcrumb-item-padding-x: 0.5rem;
+}
+
+.breadcrumb-item {
+  color: var(--bs-secondary);
+}
+
+.breadcrumb-item a {
+  color: var(--bs-primary);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--bs-primary-hover, #0b5ed7);
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--bs-body-color);
+  font-weight: 500;
+}
+
+/* Responsive breadcrumbs */
+@media (max-width: 576px) {
+  #main-breadcrumbs {
+    padding: 0.5rem 0;
+  }
+  
+  #main-breadcrumbs ol.breadcrumb {
+    font-size: 0.75rem;
+    --bs-breadcrumb-item-padding-x: 0.375rem;
+  }
 }

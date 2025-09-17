@@ -1,0 +1,3 @@
+-#  Bootstrap 5 Previous Page Link
+%li.page-item
+  = link_to_unless current_page.first?, raw(t 'views.pagination.previous'), url, remote: remote, class: "page-link", aria: { label: "Previous page" }

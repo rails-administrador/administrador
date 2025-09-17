@@ -9,10 +9,10 @@
         .card-header
           .card-title.d-flex.justify-content-between.mb-0
             .start.d-flex.align-items-center
-              .mr-1= fa_icon 'search'
+              .me-1= fa_icon 'search'
               = t('rao.query.form.title')
             .end
-              = link_to '#', class: 'btn btn-sm', data: { toggle: 'collapse', target: '#query_form' } do
+              = link_to '#', class: 'btn btn-sm', data: { bs_toggle: 'collapse', bs_target: '#query_form' } do
                 = fa_icon 'chevron-down'
         .card-body.collapse.show#query_form
           = query_helper(self).form_for(@collection, url: {}, html: { class: 'administrador-query-form' }, method: :get) do |f|

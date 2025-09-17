@@ -12,7 +12,7 @@
   color: grey;
 }
 
-#sidebar-engines .administrador-engine .badge-pill, .registered-engine .badge-pill {
+#sidebar-engines .administrador-engine .rounded-pill, .registered-engine .rounded-pill {
   min-width: 1.75rem;
 }
 
@@ -31,6 +31,6 @@
   margin-right: 0.5rem;
 }
 
-.registered-engine .badge-pill {
+.registered-engine .rounded-pill {
   min-width: 2.3rem;
 }

@@ -1,0 +1,8 @@
+-#  Bootstrap 5 Page Item
+%li.page-item{ class: ("active" if page.current?) }
+  - if page.current?
+    %span.page-link{ aria: { current: "page" } }
+      = page
+      %span.visually-hidden (current)
+  - else
+    = link_to page, url, class: "page-link", remote: remote, rel: page.rel

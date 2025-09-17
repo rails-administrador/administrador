@@ -59,7 +59,6 @@ PATH
   remote: .
   specs:
     administrador (0.0.32.pre)
-      bootstrap4-kaminari-views
       haml-rails
       rails (>= 8.0)
       rails-i18n
@@ -158,9 +157,6 @@ GEM
       msgpack (~> 1.2)
     bootstrap3-datetimepicker-rails (4.17.47)
       momentjs-rails (>= 2.8.1)
-    bootstrap4-kaminari-views (1.0.1)
-      kaminari (>= 0.13)
-      rails (>= 3.1)
     builder (3.3.0)
     capybara (3.40.0)
       addressable

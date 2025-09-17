@@ -1,4 +1,3 @@
-require "bootstrap4-kaminari-views"
 require "haml-rails"
 require "rails-i18n"
 require "rao-component"

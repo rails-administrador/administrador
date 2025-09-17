@@ -1,7 +1,11 @@
 %nav{"aria-label" => "breadcrumb"}
-  %ol.breadcrumb
-    - breadcrumbs.each do |b|
+  %ol.breadcrumb.ms-3
+    - breadcrumbs.each_with_index do |b, index|
+      - is_last = index == breadcrumbs.length - 1
       - if b.is_a?(String)
-        %li.breadcrumb-item = b
+        %li.breadcrumb-item{ class: ("active" if is_last), "aria-current": ("page" if is_last) }= b
       - else
-        %li.breadcrumb-item{ b[:li_html_options] }= link_to(b[:label], b[:url], b[:link_html_options])
+        - if is_last
+          %li.breadcrumb-item.active{ "aria-current": "page", **b[:li_html_options] }= b[:label]
+        - else
+          %li.breadcrumb-item{ b[:li_html_options] }= link_to(b[:label], b[:url], b[:link_html_options])

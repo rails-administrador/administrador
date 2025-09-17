@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.4.5'
 
   s.add_dependency "rails", ">= 8.0"
-  s.add_dependency "bootstrap4-kaminari-views"
   s.add_dependency "haml-rails"
   s.add_dependency "rails-i18n"
   s.add_dependency "rao-component",            ">= 0.0.52.pre"

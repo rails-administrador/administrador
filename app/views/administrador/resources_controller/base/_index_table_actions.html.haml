@@ -1,7 +1,7 @@
 = table.column(:actions, title: false) do |resource|
   - capture_haml do
     .w-100.d-flex
-      .btn-group.ml-auto
+      .btn-group.ms-auto
         - if available_rest_actions.include?(:show)
           = link_to(resource_path(resource), class: 'show btn btn-xs btn-responsive btn-primary') do
             %i.fas.fa-eye

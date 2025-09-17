@@ -29,22 +29,25 @@ cd spec/dummy
 # Remove .ruby-version
 rm .ruby-version
 
+# Use the correct Gemfile
+sed -i 's|../Gemfile|../../../Gemfile|' config/boot.rb
+
 # install importmaps
 bin/rails importmap:install
 
 # install turbo-rails
 bin/rails turbo:install
 
-# Add development dependencies
-cat >> Gemfile << 'EOF'
-gem "administrador", path: "../../../"
-gem "rao", path: "~/projects/gems/rao"
-gem "rao-component", path: "~/projects/gems/rao/rao-component"
-gem "rao-query", path: "~/projects/gems/rao/rao-query"
-gem "rao-resources_controller", path: "~/projects/gems/rao/rao-resources_controller"
-gem "rao-service_controller", path: "~/projects/gems/rao/rao-service_controller"
-gem "rao-view_helper", path: "~/projects/gems/rao/rao-view_helper"
-EOF
+# # Add development dependencies
+# cat >> Gemfile << 'EOF'
+# gem "administrador", path: "../../../"
+# gem "rao", path: "~/projects/gems/rao"
+# gem "rao-component", path: "~/projects/gems/rao/rao-component"
+# gem "rao-query", path: "~/projects/gems/rao/rao-query"
+# gem "rao-resources_controller", path: "~/projects/gems/rao/rao-resources_controller"
+# gem "rao-service_controller", path: "~/projects/gems/rao/rao-service_controller"
+# gem "rao-view_helper", path: "~/projects/gems/rao/rao-view_helper"
+# EOF
 
 # Add rspec
 sed -i '/group :development, :test do/a\\n  gem "rspec-rails"' Gemfile
@@ -72,9 +75,9 @@ bin/rails g administrador:install
 
 # enable kaminari by adding it before end in config/initializers/administador.rb
 sed -i '/^end$/i\  config.enable_feature(:kaminari, {})' config/initializers/administador.rb
-cat >> config/application.rb << 'EOF'
-require 'kaminari'
-EOF
+# cat >> config/application.rb << 'EOF'
+# require 'kaminari'
+# EOF
 
 # Setup engines
 echo "Setting up engines..."
