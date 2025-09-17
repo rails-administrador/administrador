@@ -42,3 +42,5 @@ gem "rao-resources_controller", path: "~/projects/gems/rao/rao-resources_control
 gem "rao-service_controller", path: "~/projects/gems/rao/rao-service_controller"
 gem "rao-view_helper", path: "~/projects/gems/rao/rao-view_helper"
 gem "simple_sidebar", path: "~/projects/gems/simple_sidebar"
+gem "simple_form-datetimepicker", path: "~/projects/gems/simple_form-datetimepicker"
+

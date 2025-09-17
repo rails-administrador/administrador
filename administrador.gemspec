@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 8.0"
   s.add_dependency "bootstrap4-kaminari-views"
-  s.add_dependency "coffee-rails"
   s.add_dependency "haml-rails"
   s.add_dependency "rails-i18n"
   s.add_dependency "rao-component",            ">= 0.0.52.pre"

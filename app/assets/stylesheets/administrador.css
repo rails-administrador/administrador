@@ -1,6 +1,2 @@
-/*
- *= require simple_sidebar
- *= require simple_form-datetimepicker
- *= require administrador/application
- */
+@import url("administrador/application.css");
  

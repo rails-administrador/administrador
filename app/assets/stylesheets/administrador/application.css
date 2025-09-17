@@ -1,4 +1,12 @@
-/*
- *= require_tree ./application
- *= require_self
- */
+@import url("./application/bootstrap-btn-responsive.css");
+@import url("./application/bootstrap-btn-xs.css");
+@import url("./application/bootstrap-circular-buttons.css");
+@import url("./application/bootstrap-table-xs.css");
+@import url("./application/breadcrumbs.css");
+@import url("./application/colors.css");
+@import url("./application/engines.css");
+@import url("./application/forms.css");
+@import url("./application/layout.css");
+@import url("./application/page-actions.css");
+@import url("./application/pagination.css");
+@import url("./application/sidebar-theme.css");

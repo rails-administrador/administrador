@@ -57,7 +57,6 @@ sed -i '/^end$/i\  mount Blorgh::Engine, at: "/blorgh"\n  mount News::Engine, at
 echo "Installing migrations..."
 bin/rails railties:install:migrations
 
-
 echo "Engines setup complete!"
 echo "Run 'bundle install' to install the local gems."
 

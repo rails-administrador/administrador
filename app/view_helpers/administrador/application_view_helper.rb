@@ -42,18 +42,18 @@ module Administrador
       asset_name = registered_engine.engine_class.name.underscore.gsub('/', '_').gsub('_engine', '')
       output = []
       
-      # Try to include JavaScript
+      # Try to include JavaScript via import maps
       begin
-        js_tag = c.javascript_include_tag(asset_name)
+        js_tag = c.javascript_import_module_tag(asset_name)
         output << "<!-- Javascript for #{registered_engine} -->".html_safe
         output << js_tag
       rescue => e
-        # Asset not found, skip
+        # Asset not found, skip - engines should handle their own import maps
       end
       
-      # Try to include CSS
+      # Try to include CSS (Propshaft handles this the same way)
       begin
-        css_tag = c.stylesheet_link_tag(asset_name, media: "all")
+        css_tag = c.stylesheet_link_tag(asset_name, "data-turbo-track": "reload")
         output << "<!-- CSS for #{registered_engine} -->".html_safe
         output << css_tag
       rescue => e

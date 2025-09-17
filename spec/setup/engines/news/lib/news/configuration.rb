@@ -6,7 +6,9 @@ module News
 
     mattr_accessor :registered_controllers do
       lambda do
-        []
+        [
+          News::ItemsController
+        ]
       end
     end
 

@@ -35,13 +35,9 @@ bin/rails importmap:install
 # install turbo-rails
 bin/rails turbo:install
 
-# Add administrador from local path by appending to Gemfile
+# Add development dependencies
 cat >> Gemfile << 'EOF'
 gem "administrador", path: "../../../"
-EOF
-
-# Add rao from local path by appending to Gemfile
-cat >> Gemfile << 'EOF'
 gem "rao", path: "~/projects/gems/rao"
 gem "rao-component", path: "~/projects/gems/rao/rao-component"
 gem "rao-query", path: "~/projects/gems/rao/rao-query"
@@ -59,8 +55,20 @@ sed -i '/group :development, :test do/a\\n  gem "factory_bot_rails"' Gemfile
 # Install dependencies
 bundle install
 
-# Install
-rails generate administrador:install
+# Install rao-component
+bin/rails g rao:component:install
+
+# Install simple_form
+bin/rails g simple_form:install --bootstrap
+
+# Install simple_form-datetimepicker
+bin/rails g simple_form:datetimepicker:install
+
+# Install simple_sidebar
+bin/rails g simple_sidebar:install
+
+# Install administrador
+bin/rails g administrador:install
 
 # Setup engines
 echo "Setting up engines..."
@@ -68,3 +76,7 @@ bash ../../setup_engines.sh
 
 # Setup database
 rails db:migrate db:test:prepare
+
+# Create posts, categories, items
+bin/rails runner "require 'factory_bot_rails'; FactoryBot.create_list(:blorgh_post, 100)"
+bin/rails runner "require 'factory_bot_rails'; FactoryBot.create_list(:news_item, 100)"
